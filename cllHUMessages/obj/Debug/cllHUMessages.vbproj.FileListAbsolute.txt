@@ -1,9 +1,0 @@
-C:\Users\Hew\AppData\Local\Temporary Projects\cllHUMessages\bin\Debug\cllHUMessages.dll
-C:\Users\Hew\AppData\Local\Temporary Projects\cllHUMessages\bin\Debug\cllHUMessages.pdb
-C:\Users\Hew\AppData\Local\Temporary Projects\cllHUMessages\bin\Debug\cllHUMessages.xml
-C:\Users\Hew\AppData\Local\Temporary Projects\cllHUMessages\obj\Debug\cllHUMessages.vbprojResolveAssemblyReference.cache
-C:\Users\Hew\AppData\Local\Temporary Projects\cllHUMessages\obj\Debug\cllHUMessages.Resources.resources
-C:\Users\Hew\AppData\Local\Temporary Projects\cllHUMessages\obj\Debug\cllHUMessages.vbproj.GenerateResource.Cache
-C:\Users\Hew\AppData\Local\Temporary Projects\cllHUMessages\obj\Debug\cllHUMessages.dll
-C:\Users\Hew\AppData\Local\Temporary Projects\cllHUMessages\obj\Debug\cllHUMessages.xml
-C:\Users\Hew\AppData\Local\Temporary Projects\cllHUMessages\obj\Debug\cllHUMessages.pdb
