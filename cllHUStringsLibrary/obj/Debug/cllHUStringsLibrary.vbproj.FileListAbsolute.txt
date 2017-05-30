@@ -1,0 +1,17 @@
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\RVMasterLog Development\Working Copy\cllHULibrary\bin\Debug\cllHULibrary.dll
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\RVMasterLog Development\Working Copy\cllHULibrary\bin\Debug\cllHULibrary.pdb
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\RVMasterLog Development\Working Copy\cllHULibrary\bin\Debug\cllHULibrary.xml
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\RVMasterLog Development\Working Copy\cllHULibrary\obj\Debug\cllHULibrary.Resources.resources
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\RVMasterLog Development\Working Copy\cllHULibrary\obj\Debug\cllHUStringsLibrary.vbproj.GenerateResource.Cache
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\RVMasterLog Development\Working Copy\cllHULibrary\obj\Debug\cllHULibrary.dll
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\RVMasterLog Development\Working Copy\cllHULibrary\obj\Debug\cllHULibrary.xml
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\RVMasterLog Development\Working Copy\cllHULibrary\obj\Debug\cllHULibrary.pdb
+C:\Users\Hew\Documents\Visual Studio 2017\HULibrary Files\HULibs Development\Working Copy\HUStringsLibrary Development\cllHUStringsLibrary\bin\Debug\cllHULibrary.dll
+C:\Users\Hew\Documents\Visual Studio 2017\HULibrary Files\HULibs Development\Working Copy\HUStringsLibrary Development\cllHUStringsLibrary\bin\Debug\cllHULibrary.pdb
+C:\Users\Hew\Documents\Visual Studio 2017\HULibrary Files\HULibs Development\Working Copy\HUStringsLibrary Development\cllHUStringsLibrary\bin\Debug\cllHULibrary.xml
+C:\Users\Hew\Documents\Visual Studio 2017\HULibrary Files\HULibs Development\Working Copy\HUStringsLibrary Development\cllHUStringsLibrary\obj\Debug\cllHUStringsLibrary.vbprojResolveAssemblyReference.cache
+C:\Users\Hew\Documents\Visual Studio 2017\HULibrary Files\HULibs Development\Working Copy\HUStringsLibrary Development\cllHUStringsLibrary\obj\Debug\cllHULibrary.Resources.resources
+C:\Users\Hew\Documents\Visual Studio 2017\HULibrary Files\HULibs Development\Working Copy\HUStringsLibrary Development\cllHUStringsLibrary\obj\Debug\cllHUStringsLibrary.vbproj.GenerateResource.Cache
+C:\Users\Hew\Documents\Visual Studio 2017\HULibrary Files\HULibs Development\Working Copy\HUStringsLibrary Development\cllHUStringsLibrary\obj\Debug\cllHULibrary.dll
+C:\Users\Hew\Documents\Visual Studio 2017\HULibrary Files\HULibs Development\Working Copy\HUStringsLibrary Development\cllHUStringsLibrary\obj\Debug\cllHULibrary.xml
+C:\Users\Hew\Documents\Visual Studio 2017\HULibrary Files\HULibs Development\Working Copy\HUStringsLibrary Development\cllHUStringsLibrary\obj\Debug\cllHULibrary.pdb

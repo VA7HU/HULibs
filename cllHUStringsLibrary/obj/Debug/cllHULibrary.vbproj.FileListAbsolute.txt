@@ -1,0 +1,8 @@
+C:\Users\Hew\Documents\Programming\Programming Projects\VB2017\RVMasterLog\Working Copy\cllHULibrary\bin\Debug\cllHULibrary.dll
+C:\Users\Hew\Documents\Programming\Programming Projects\VB2017\RVMasterLog\Working Copy\cllHULibrary\bin\Debug\cllHULibrary.pdb
+C:\Users\Hew\Documents\Programming\Programming Projects\VB2017\RVMasterLog\Working Copy\cllHULibrary\bin\Debug\cllHULibrary.xml
+C:\Users\Hew\Documents\Programming\Programming Projects\VB2017\RVMasterLog\Working Copy\cllHULibrary\obj\Debug\cllHULibrary.Resources.resources
+C:\Users\Hew\Documents\Programming\Programming Projects\VB2017\RVMasterLog\Working Copy\cllHULibrary\obj\Debug\cllHULibrary.vbproj.GenerateResource.Cache
+C:\Users\Hew\Documents\Programming\Programming Projects\VB2017\RVMasterLog\Working Copy\cllHULibrary\obj\Debug\cllHULibrary.dll
+C:\Users\Hew\Documents\Programming\Programming Projects\VB2017\RVMasterLog\Working Copy\cllHULibrary\obj\Debug\cllHULibrary.xml
+C:\Users\Hew\Documents\Programming\Programming Projects\VB2017\RVMasterLog\Working Copy\cllHULibrary\obj\Debug\cllHULibrary.pdb
