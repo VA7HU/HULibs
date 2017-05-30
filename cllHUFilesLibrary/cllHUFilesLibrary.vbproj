@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D18EB4D1-3BC9-425B-BC25-ED6501093B1C}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>cllHUFiles</RootNamespace>
+    <RootNamespace>cllHUFilesLibrary</RootNamespace>
     <AssemblyName>cllHUFilesLibrary</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
@@ -43,6 +43,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="cllHUStringsLibrary">
+      <HintPath>..\cllHUStringsLibrary\bin\Debug\cllHUStringsLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
