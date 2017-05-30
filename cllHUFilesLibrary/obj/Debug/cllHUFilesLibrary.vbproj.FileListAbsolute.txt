@@ -1,0 +1,9 @@
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\HULibs Development\Working Copy\cllHUFilesLibrary\bin\Debug\cllHUFilesLibrary.dll
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\HULibs Development\Working Copy\cllHUFilesLibrary\bin\Debug\cllHUFilesLibrary.pdb
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\HULibs Development\Working Copy\cllHUFilesLibrary\bin\Debug\cllHUFilesLibrary.xml
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\HULibs Development\Working Copy\cllHUFilesLibrary\obj\Debug\cllHUFilesLibrary.vbprojResolveAssemblyReference.cache
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\HULibs Development\Working Copy\cllHUFilesLibrary\obj\Debug\cllHUFiles.Resources.resources
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\HULibs Development\Working Copy\cllHUFilesLibrary\obj\Debug\cllHUFilesLibrary.vbproj.GenerateResource.Cache
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\HULibs Development\Working Copy\cllHUFilesLibrary\obj\Debug\cllHUFilesLibrary.dll
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\HULibs Development\Working Copy\cllHUFilesLibrary\obj\Debug\cllHUFilesLibrary.xml
+C:\Users\Hew\Documents\Visual Studio 2017\Projects\HULibs Development\Working Copy\cllHUFilesLibrary\obj\Debug\cllHUFilesLibrary.pdb
