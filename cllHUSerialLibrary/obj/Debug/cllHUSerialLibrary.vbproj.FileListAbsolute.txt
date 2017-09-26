@@ -1,0 +1,9 @@
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUSerialLibrary\bin\Debug\cllHUSerialLibrary.dll
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUSerialLibrary\bin\Debug\cllHUSerialLibrary.pdb
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUSerialLibrary\bin\Debug\cllHUSerialLibrary.xml
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUSerialLibrary\obj\Debug\cllHUSerialLibrary.vbprojResolveAssemblyReference.cache
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUSerialLibrary\obj\Debug\cllHUSerialLibrary.Resources.resources
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUSerialLibrary\obj\Debug\cllHUSerialLibrary.vbproj.GenerateResource.Cache
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUSerialLibrary\obj\Debug\cllHUSerialLibrary.dll
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUSerialLibrary\obj\Debug\cllHUSerialLibrary.xml
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUSerialLibrary\obj\Debug\cllHUSerialLibrary.pdb

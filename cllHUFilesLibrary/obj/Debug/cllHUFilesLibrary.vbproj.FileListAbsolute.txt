@@ -18,3 +18,14 @@ C:\Users\Hew\Documents\Visual Studio 2017\HULibrary Files\HULibs Development\Wor
 C:\Users\Hew\Documents\Visual Studio 2017\HULibrary Files\HULibs Development\Working Copy\cllHUFilesLibrary\bin\Debug\cllHUStringsLibrary.pdb
 C:\Users\Hew\Documents\Visual Studio 2017\HULibrary Files\HULibs Development\Working Copy\cllHUFilesLibrary\bin\Debug\cllHUStringsLibrary.xml
 C:\Users\Hew\Documents\Visual Studio 2017\HULibrary Files\HULibs Development\Working Copy\cllHUFilesLibrary\obj\Debug\cllHUFilesLibrary.Resources.resources
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUFilesLibrary\bin\Debug\cllHUFilesLibrary.dll
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUFilesLibrary\bin\Debug\cllHUFilesLibrary.pdb
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUFilesLibrary\bin\Debug\cllHUFilesLibrary.xml
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUFilesLibrary\bin\Debug\cllHUStringsLibrary.dll
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUFilesLibrary\bin\Debug\cllHUStringsLibrary.pdb
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUFilesLibrary\bin\Debug\cllHUStringsLibrary.xml
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUFilesLibrary\obj\Debug\cllHUFilesLibrary.Resources.resources
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUFilesLibrary\obj\Debug\cllHUFilesLibrary.vbproj.GenerateResource.Cache
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUFilesLibrary\obj\Debug\cllHUFilesLibrary.dll
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUFilesLibrary\obj\Debug\cllHUFilesLibrary.xml
+C:\Users\Hew\Documents\Programming\Programming Projects\Visual Basic\HULibs Development\Working Copy\cllHUFilesLibrary\obj\Debug\cllHUFilesLibrary.pdb
