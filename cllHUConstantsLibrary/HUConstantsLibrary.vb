@@ -27,6 +27,20 @@ Public Class HUConstantsLibrary
   '          PUBLIC CONSTANTS
   '========================================================================================
 
+  Public keyNull = Chr(0)
+  Public keyBS = Chr(8)
+  Public keyTab = Chr(9)
+
+
+
+  'keyEnter = #13;
+  'keySpace = #32;
+  'keyLArrow = #37;
+  'keyUArrow = #38;
+  'keyRArrow = #39;
+  'keyDArrow = #40;
+  'keyDecimalPoint = #46;
+
   '========================================================================================
   '          PRIVATE VARIABLES
   '========================================================================================
