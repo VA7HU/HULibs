@@ -1,5 +1,4 @@
 ﻿Imports System.Windows.Forms
-'Imports cllHUStringsLibrary
 
 Public Class HUMessagesLibrary
 
@@ -15,74 +14,93 @@ Public Class HUMessagesLibrary
   '
   '   Version:  1.0.0
   '
-  '   Date: 22 FEb 2018
+  '   Date: 22 Feb 2018
   '
-  '=== =====================================================================================
-
-  '==============================
-  '       ERROR MESSAGES
-  '==============================
+  '=========================================================================================
+  'Message, Caption, Buttons, Icon, DefaultButton, BoxOptions, HelpFile, HelpNavigator,
+  'HelpTopic, HelpKeyword
 
   '========================================================================================
   '          PRIVATE CONSTANTS
   '========================================================================================
-  Private cstrCaptionString = "Error"
-
-  '========================================================================================
-  '          PUBLIC CONSTANTS
-  '========================================================================================
+  Private cstrErrorCaptionString = "Error"
+  Private cstrWarningCaptionString = "Warning"
+  Private cstrConfirmationCaptionString = "Confirmation"
 
   '========================================================================================
   '          PRIVATE VARIABLES
   '========================================================================================
   Private vstrCaptionString As String
 
-  '========================================================================================
-  '          PUBLIC VARIABLES
-  '========================================================================================
+
+
+
+
 
   '========================================================================================
-  '          PRIVATE PROPERTIES
+  '          CONFIRMATION MESSAGES
   '========================================================================================
+  Public Function HUConfirmationMessagOK(vstrMsg As String,
+                                         vstrCaption As String) As MsgBoxResult
+
+    Dim Result As DialogResult
+
+    If vstrCaption = Nothing Then
+      vstrCaptionString = cstrConfirmationCaptionString
+    Else
+      vstrCaptionString = vstrCaption
+    End If 'If vstrCaption = Nothing
+
+    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OK,
+                               MessageBoxIcon.Exclamation)
+
+  End Function 'Public Function HUConfirmationMessagOK()
+
+  '--------------------------------------------------------------------------------------
+  Public Function HUConfirmationMessagOKCancel(vstrMsg As String,
+                                               vstrCaption As String) As MsgBoxResult
+
+    Dim Result As DialogResult
+
+    If vstrCaption = Nothing Then
+      vstrCaptionString = cstrConfirmationCaptionString
+    Else
+      vstrCaptionString = vstrCaption
+    End If 'If vstrCaption = Nothing
+
+    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
+                               MessageBoxIcon.Exclamation)
+
+  End Function 'Public Function HUConfirmationMessagOKCancel()
+
+  ''--------------------------------------------------------------------------------------
+  Public Function HUConfirmationMessagRetryCancel(vstrMsg As String,
+                                           vstrCaption As String) As MsgBoxResult
+
+    Dim Result As DialogResult
+
+
+    If vstrCaption = Nothing Then
+      vstrCaptionString = cstrConfirmationCaptionString
+    Else
+      vstrCaptionString = vstrCaption
+    End If 'If vstrCaption = Nothing
+
+    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
+                               MessageBoxIcon.Exclamation)
+
+  End Function 'Public Function HUConfirmationMessagRetryCancel()
+
+
+
+
+
 
   '========================================================================================
-  '          PUBLIC PROPERTIES
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE PROPERTY ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC PROPERTY ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE EVENT ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC EVENT ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE METHOD ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC METHOD ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC ROUTINES
+  '          ERROR MESSAGES
   '========================================================================================
   'Message, Caption, Buttons, Icon, DefaultButton, BoxOptions, HelpFile, HelpNavigator,
   'HelpTopic, HelpKeyword
-
 
   Public Function HUErrorMessagOK(vstrMsg As String,
                                   vstrCaption As String) As MsgBoxResult
@@ -90,10 +108,10 @@ Public Class HUMessagesLibrary
     Dim Result As DialogResult
 
     If vstrCaption = Nothing Then
-      vstrCaptionString = cstrCaptionString
+      vstrCaptionString = cstrErrorCaptionString
     Else
       vstrCaptionString = vstrCaption
-    End If
+    End If 'If vstrCaption = Nothing
 
     Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OK,
                                MessageBoxIcon.Error)
@@ -107,10 +125,10 @@ Public Class HUMessagesLibrary
     Dim Result As DialogResult
 
     If vstrCaption = Nothing Then
-      vstrCaptionString = cstrCaptionString
+      vstrCaptionString = cstrErrorCaptionString
     Else
       vstrCaptionString = vstrCaption
-    End If
+    End If 'If vstrCaption = Nothing
 
 
     Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
@@ -119,181 +137,197 @@ Public Class HUMessagesLibrary
   End Function 'Public Function HUErrorMessagOKCancel()
 
   '--------------------------------------------------------------------------------------
-  Public Function HUErrorMessagBoxRetryCancel(vstrMsg As String) As MsgBoxResult
+  Public Function HUErrorMessagRetryCancel(vstrMsg As String,
+                                           vstrCaption As String) As MsgBoxResult
 
     Dim Result As DialogResult
-    Result = MessageBox.Show(vstrMsg, cstrCaptionString, MessageBoxButtons.RetryCancel,
+
+    If vstrCaption = Nothing Then
+      vstrCaptionString = cstrErrorCaptionString
+    Else
+      vstrCaptionString = vstrCaption
+    End If 'If vstrCaption = Nothing
+
+    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.RetryCancel,
                              MessageBoxIcon.Error)
 
-  End Function 'Public Function HUErrorMessagBoxRetryCancel()
-
-  '=======================================================================================
-  '          FILE ROUTINES
-  '========================================================================================
-
-  '======================================================================================
-
-  '==============================
-  '       WARNING MESSAGES
-  '==============================
-
-  '========================================================================================
-  '          PRIVATE CONSTANTS
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC CONSTANTS
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE VARIABLES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC VARIABLES
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE PROPERTIES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC PROPERTIES
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE PROPERTY ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC PROPERTY ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE EVENT ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC EVENT ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE METHOD ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC METHOD ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          FILE ROUTINES
-  '========================================================================================
-
-  '========================================================================================
+  End Function 'Public Function HUErrorMessagRetryCancel()
 
 
-  '==============================
-  '       CONFIRMATION MESSAGES
-  '==============================
-
-  '========================================================================================
-  '          PRIVATE CONSTANTS
-  '========================================================================================
-  ' Private cstrCaptionString = "Error"
-
-  '========================================================================================
-  '          PUBLIC CONSTANTS
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE VARIABLES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC VARIABLES
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE PROPERTIES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC PROPERTIES
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE PROPERTY ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC PROPERTY ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE EVENT ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC EVENT ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE METHOD ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC METHOD ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PRIVATE ROUTINES
-  '========================================================================================
-
-  '========================================================================================
-  '          PUBLIC ROUTINES
-  '========================================================================================
-  'Message, Caption, Buttons, Icon, DefaultButton, BoxOptions, HelpFile, HelpNavigator,
-  'HelpTopic, HelpKeyword
 
 
-  'Public Function HUErrorMessagBoxOK(vstrMsg As String) As MsgBoxResult
 
-  '  Dim Result As DialogResult
 
-  '  Result = MessageBox.Show(vstrMsg, cstrCaptionString, MessageBoxButtons.OK,
-  '                             MessageBoxIcon.Error)
+  '========================================================================================
+  '          INFORMATION MESSAGES
+  '========================================================================================
+  Public Function HUInformationMessagOK(vstrMsg As String,
+                                         vstrCaption As String) As MsgBoxResult
 
-  'End Function 'Public Function HUErrorMessagBoxOK()
+    Dim Result As DialogResult
+
+    If vstrCaption = Nothing Then
+      vstrCaptionString = cstrConfirmationCaptionString
+    Else
+      vstrCaptionString = vstrCaption
+    End If 'If vstrCaption = Nothing
+
+    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OK,
+                               MessageBoxIcon.Information)
+
+  End Function 'Public Function HUInformationMessagOK()
 
   '--------------------------------------------------------------------------------------
-  'Public Function HUErrorMessagBoxOKCancel(vstrMsg As String) As MsgBoxResult
+  Public Function HUInformationMessagOKCancel(vstrMsg As String,
+                                               vstrCaption As String) As MsgBoxResult
+
+    Dim Result As DialogResult
+
+    If vstrCaption = Nothing Then
+      vstrCaptionString = cstrConfirmationCaptionString
+    Else
+      vstrCaptionString = vstrCaption
+    End If 'If vstrCaption = Nothing
+
+    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
+                               MessageBoxIcon.Information)
+
+  End Function 'Public Function HUInformationMessagOKCancel()
+
+  '''--------------------------------------------------------------------------------------
+  Public Function HUInformationnMessagRetryCancel(vstrMsg As String,
+                                           vstrCaption As String) As MsgBoxResult
+
+    Dim Result As DialogResult
+
+
+    If vstrCaption = Nothing Then
+      vstrCaptionString = cstrConfirmationCaptionString
+    Else
+      vstrCaptionString = vstrCaption
+    End If 'If vstrCaption = Nothing
+
+    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
+                               MessageBoxIcon.Information)
+
+  End Function 'Public Function HUInformationMessagRetryCancel()
+
+
+
+
+
+
+  '========================================================================================
+  '          QUERY MESSAGES
+  '========================================================================================
+  'Public Function HUConfirmationMessagOK(vstrMsg As String,
+  '                                       vstrCaption As String) As MsgBoxResult
 
   '  Dim Result As DialogResult
-  '  Result = MessageBox.Show(vstrMsg, cstrCaptionString, MessageBoxButtons.OKCancel,
-  '                             MessageBoxIcon.Error)
 
-  'End Function 'Public Function HUErrorMessagBoxOKCancel()
+  '  If vstrCaption = Nothing Then
+  '    vstrCaptionString = cstrConfirmationCaptionString
+  '  Else
+  '    vstrCaptionString = vstrCaption
+  '  End If 'If vstrCaption = Nothing
+
+  '  Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OK,
+  '                             MessageBoxIcon.Exclamation)
+
+  'End Function 'Public Function HUConfirmationMessagOK()
 
   ''--------------------------------------------------------------------------------------
-  'Public Function HUErrorMessagBoxRetryCancel(vstrMsg As String) As MsgBoxResult
+  'Public Function HUConfirmationMessagOKCancel(vstrMsg As String,
+  '                                             vstrCaption As String) As MsgBoxResult
 
   '  Dim Result As DialogResult
-  '  Result = MessageBox.Show(vstrMsg, cstrCaptionString, MessageBoxButtons.RetryCancel,
-  '                             MessageBoxIcon.Error)
 
-  'End Function 'Public Function HUErrorMessagBoxRetryCancel()
+  '  If vstrCaption = Nothing Then
+  '    vstrCaptionString = cstrConfirmationCaptionString
+  '  Else
+  '    vstrCaptionString = vstrCaption
+  '  End If 'If vstrCaption = Nothing
 
-  '=======================================================================================
-  '          FILE ROUTINES
+  '  Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
+  '                             MessageBoxIcon.Exclamation)
+
+  'End Function 'Public Function HUConfirmationMessagOKCancel()
+
+  '''--------------------------------------------------------------------------------------
+  'Public Function HUConfirmationMessagRetryCancel(vstrMsg As String,
+  '                                         vstrCaption As String) As MsgBoxResult
+
+  '  Dim Result As DialogResult
+
+
+  '  If vstrCaption = Nothing Then
+  '    vstrCaptionString = cstrConfirmationCaptionString
+  '  Else
+  '    vstrCaptionString = vstrCaption
+  '  End If 'If vstrCaption = Nothing
+
+  '  Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
+  '                             MessageBoxIcon.Exclamation)
+
+  'End Function 'Public Function HUConfirmationMessagRetryCancel()
+
+
+
+
+
+
   '========================================================================================
+  '          WARNING MESSAGES
+  '========================================================================================
+  Public Function HUWarningMessagOK(vstrMsg As String,
+                                  vstrCaption As String) As MsgBoxResult
+
+    Dim Result As DialogResult
+
+    If vstrCaption = Nothing Then
+      vstrCaptionString = cstrErrorCaptionString
+    Else
+      vstrCaptionString = vstrCaption
+    End If 'If vstrCaption = Nothing
+
+    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OK,
+                                 MessageBoxIcon.Warning)
+
+  End Function 'Public Function HUWarningMessagOK()
+
+  '--------------------------------------------------------------------------------------
+  Public Function HUWarningMessagOKCancel(vstrMsg As String,
+                                        vstrCaption As String) As MsgBoxResult
+
+    Dim Result As DialogResult
+
+    If vstrCaption = Nothing Then
+      vstrCaptionString = cstrErrorCaptionString
+    Else
+      vstrCaptionString = vstrCaption
+    End If 'If vstrCaption = Nothing
+
+    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
+                               MessageBoxIcon.Warning)
+
+  End Function 'Public Function HUWarningMessagOKCancel()
+
+  '--------------------------------------------------------------------------------------
+  Public Function HUMessagRetryCancel(vstrMsg As String,
+                                           vstrCaption As String) As MsgBoxResult
+
+    Dim Result As DialogResult
+
+    If vstrCaption = Nothing Then
+      vstrCaptionString = cstrErrorCaptionString
+    Else
+      vstrCaptionString = vstrCaption
+    End If 'If vstrCaption = Nothing
+
+    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.RetryCancel,
+                             MessageBoxIcon.Warning)
+
+  End Function 'Public Function HUWarningMessagRetryCancel()
 
   '======================================================================================
 
