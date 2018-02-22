@@ -7,3 +7,12 @@ C:\Users\Hew\Documents\Programming\Programming Projects\Active Projects\Visual B
 C:\Users\Hew\Documents\Programming\Programming Projects\Active Projects\Visual Basic\HULibs Development\Working Copy\cllHUMessagesLibrary\obj\Debug\cllHUMessagesLibrary.dll
 C:\Users\Hew\Documents\Programming\Programming Projects\Active Projects\Visual Basic\HULibs Development\Working Copy\cllHUMessagesLibrary\obj\Debug\cllHUMessagesLibrary.xml
 C:\Users\Hew\Documents\Programming\Programming Projects\Active Projects\Visual Basic\HULibs Development\Working Copy\cllHUMessagesLibrary\obj\Debug\cllHUMessagesLibrary.pdb
+C:\Users\Hew\Documents\Programming\Projects\HULibDevelopment\Working Copy\cllHUMessagesLibrary\bin\Debug\cllHUMessagesLibrary.dll
+C:\Users\Hew\Documents\Programming\Projects\HULibDevelopment\Working Copy\cllHUMessagesLibrary\bin\Debug\cllHUMessagesLibrary.pdb
+C:\Users\Hew\Documents\Programming\Projects\HULibDevelopment\Working Copy\cllHUMessagesLibrary\bin\Debug\cllHUMessagesLibrary.xml
+C:\Users\Hew\Documents\Programming\Projects\HULibDevelopment\Working Copy\cllHUMessagesLibrary\obj\Debug\cllHUMessageLibrary.Resources.resources
+C:\Users\Hew\Documents\Programming\Projects\HULibDevelopment\Working Copy\cllHUMessagesLibrary\obj\Debug\cllHUMessagesLibrary.vbproj.GenerateResource.Cache
+C:\Users\Hew\Documents\Programming\Projects\HULibDevelopment\Working Copy\cllHUMessagesLibrary\obj\Debug\cllHUMessagesLibrary.vbproj.CoreCompileInputs.cache
+C:\Users\Hew\Documents\Programming\Projects\HULibDevelopment\Working Copy\cllHUMessagesLibrary\obj\Debug\cllHUMessagesLibrary.dll
+C:\Users\Hew\Documents\Programming\Projects\HULibDevelopment\Working Copy\cllHUMessagesLibrary\obj\Debug\cllHUMessagesLibrary.xml
+C:\Users\Hew\Documents\Programming\Projects\HULibDevelopment\Working Copy\cllHUMessagesLibrary\obj\Debug\cllHUMessagesLibrary.pdb
