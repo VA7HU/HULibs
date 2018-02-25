@@ -22,7 +22,7 @@ cllHUMessagesLibrary
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
-<member name="M:cllHUMessageLibrary.HUMessagesLibrary.HUInformationnMessagRetryCancel(System.String,System.String)">
+<member name="M:cllHUMessageLibrary.HUMessagesLibrary.HUInformationnMessageRetryCancel(System.String,System.String)">
 --------------------------------------------------------------------------------------
 </member>
 </members>

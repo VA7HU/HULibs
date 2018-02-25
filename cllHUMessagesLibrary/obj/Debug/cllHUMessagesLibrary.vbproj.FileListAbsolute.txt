@@ -16,3 +16,4 @@ C:\Users\Hew\Documents\Programming\Projects\HULibDevelopment\Working Copy\cllHUM
 C:\Users\Hew\Documents\Programming\Projects\HULibDevelopment\Working Copy\cllHUMessagesLibrary\obj\Debug\cllHUMessagesLibrary.dll
 C:\Users\Hew\Documents\Programming\Projects\HULibDevelopment\Working Copy\cllHUMessagesLibrary\obj\Debug\cllHUMessagesLibrary.xml
 C:\Users\Hew\Documents\Programming\Projects\HULibDevelopment\Working Copy\cllHUMessagesLibrary\obj\Debug\cllHUMessagesLibrary.pdb
+C:\Users\Hew\Documents\Programming\Projects\HULibDevelopment\Working Copy\cllHUMessagesLibrary\obj\Debug\cllHUMessagesLibrary.vbprojResolveAssemblyReference.cache
