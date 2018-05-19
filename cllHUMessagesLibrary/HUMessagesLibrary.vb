@@ -43,15 +43,13 @@ Public Class HUMessagesLibrary
   Public Function HUConfirmationMessageOK(vstrMsg As String,
                                          vstrCaption As String) As MsgBoxResult
 
-    Dim Result As DialogResult
-
     If vstrCaption = Nothing Then
       vstrCaptionString = cstrConfirmationCaptionString
     Else
       vstrCaptionString = cstrConfirmationCaptionString + vstrCaption
     End If 'If vstrCaption = Nothing
 
-    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OK,
+    Return MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OK,
                                MessageBoxIcon.Exclamation)
 
   End Function 'Public Function HUConfirmationMessageOK()
@@ -60,15 +58,13 @@ Public Class HUMessagesLibrary
   Public Function HUConfirmationMessageOKCancel(vstrMsg As String,
                                                vstrCaption As String) As MsgBoxResult
 
-    Dim Result As DialogResult
-
     If vstrCaption = Nothing Then
       vstrCaptionString = cstrConfirmationCaptionString
     Else
       vstrCaptionString = vstrCaption
     End If 'If vstrCaption = Nothing
 
-    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
+    Return MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
                                MessageBoxIcon.Exclamation)
 
   End Function 'Public Function HUConfirmationMessageOKCancel()
@@ -77,16 +73,13 @@ Public Class HUMessagesLibrary
   Public Function HUConfirmationMessagMessageRetryCancel(vstrMsg As String,
                                            vstrCaption As String) As MsgBoxResult
 
-    Dim Result As DialogResult
-
-
     If vstrCaption = Nothing Then
       vstrCaptionString = cstrConfirmationCaptionString
     Else
       vstrCaptionString = vstrCaption
     End If 'If vstrCaption = Nothing
 
-    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
+    Return MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
                                MessageBoxIcon.Exclamation)
 
   End Function 'Public Function HUConfirmationMessageRetryCancel()
@@ -100,15 +93,13 @@ Public Class HUMessagesLibrary
   Public Function HUErrorMessageOK(vstrMsg As String,
                                   vstrCaption As String) As MsgBoxResult
 
-    Dim Result As DialogResult
-
     If vstrCaption = Nothing Then
       vstrCaptionString = cstrErrorCaptionString
     Else
       vstrCaptionString = cstrErrorCaptionString + vstrCaption
     End If 'If vstrCaption = Nothing
 
-    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OK,
+    Return MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OK,
                                MessageBoxIcon.Error)
 
   End Function 'Public Function HUErrorMessageOK()
@@ -117,8 +108,6 @@ Public Class HUMessagesLibrary
   Public Function HUErrorMessageOKCancel(vstrMsg As String,
                                         vstrCaption As String) As MsgBoxResult
 
-    Dim Result As DialogResult
-
     If vstrCaption = Nothing Then
       vstrCaptionString = cstrErrorCaptionString
     Else
@@ -126,7 +115,7 @@ Public Class HUMessagesLibrary
     End If 'If vstrCaption = Nothing
 
 
-    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
+    Return MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
                                MessageBoxIcon.Error)
 
   End Function 'Public Function HUErrorMessageOKCancel()
@@ -135,15 +124,13 @@ Public Class HUMessagesLibrary
   Public Function HUErrorMessageRetryCancel(vstrMsg As String,
                                            vstrCaption As String) As MsgBoxResult
 
-    Dim Result As DialogResult
-
     If vstrCaption = Nothing Then
       vstrCaptionString = cstrErrorCaptionString
     Else
       vstrCaptionString = cstrErrorCaptionString + vstrCaption
     End If 'If vstrCaption = Nothing
 
-    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.RetryCancel,
+    Return MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.RetryCancel,
                              MessageBoxIcon.Error)
 
   End Function 'Public Function HUErrorMessageRetryCancel()
@@ -154,15 +141,13 @@ Public Class HUMessagesLibrary
   Public Function HUInformationMessageOK(vstrMsg As String,
                                          vstrCaption As String) As MsgBoxResult
 
-    Dim Result As DialogResult
-
     If vstrCaption = Nothing Then
       vstrCaptionString = cstrInformationCaptionString
     Else
       vstrCaptionString = cstrInformationCaptionString + vstrCaption
     End If 'If vstrCaption = Nothing
 
-    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OK,
+    Return MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OK,
                                MessageBoxIcon.Information)
 
   End Function 'Public Function HUInformationMessageOK()
@@ -171,15 +156,13 @@ Public Class HUMessagesLibrary
   Public Function HUInformationMessageOKCancel(vstrMsg As String,
                                                vstrCaption As String) As MsgBoxResult
 
-    Dim Result As DialogResult
-
     If vstrCaption = Nothing Then
       vstrCaptionString = cstrInformationCaptionString
     Else
       vstrCaptionString = vstrCaption
     End If 'If vstrCaption = Nothing
 
-    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
+    Return MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
                                MessageBoxIcon.Information)
 
   End Function 'Public Function HUInformationMessageOKCancel()
@@ -188,16 +171,13 @@ Public Class HUMessagesLibrary
   Public Function HUInformationnMessageRetryCancel(vstrMsg As String,
                                            vstrCaption As String) As MsgBoxResult
 
-    Dim Result As DialogResult
-
-
     If vstrCaption = Nothing Then
       vstrCaptionString = cstrInformationCaptionString
     Else
       vstrCaptionString = vstrCaption
     End If 'If vstrCaption = Nothing
 
-    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
+    Return MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
                                MessageBoxIcon.Information)
 
   End Function 'Public Function HUInformationMessageRetryCancel()
@@ -262,15 +242,13 @@ Public Class HUMessagesLibrary
   Public Function HUWarningMessageOK(vstrMsg As String,
                                   vstrCaption As String) As MsgBoxResult
 
-    Dim Result As DialogResult
-
     If vstrCaption = Nothing Then
       vstrCaptionString = cstrErrorCaptionString
     Else
       vstrCaptionString = vstrCaption
     End If 'If vstrCaption = Nothing
 
-    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OK,
+    Return MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OK,
                                  MessageBoxIcon.Warning)
 
   End Function 'Public Function HUWarningMessageOK()
@@ -279,15 +257,13 @@ Public Class HUMessagesLibrary
   Public Function HUWarningMessageOKCancel(vstrMsg As String,
                                         vstrCaption As String) As MsgBoxResult
 
-    Dim Result As DialogResult
-
     If vstrCaption = Nothing Then
       vstrCaptionString = cstrErrorCaptionString
     Else
       vstrCaptionString = vstrCaption
     End If 'If vstrCaption = Nothing
 
-    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
+    Return MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.OKCancel,
                                MessageBoxIcon.Warning)
 
   End Function 'Public Function HUWarningMessageOKCancel()
@@ -296,15 +272,13 @@ Public Class HUMessagesLibrary
   Public Function HUWarningMessageRetryCancel(vstrMsg As String,
                                            vstrCaption As String) As MsgBoxResult
 
-    Dim Result As DialogResult
-
     If vstrCaption = Nothing Then
       vstrCaptionString = cstrErrorCaptionString
     Else
       vstrCaptionString = vstrCaption
     End If 'If vstrCaption = Nothing
 
-    Result = MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.RetryCancel,
+    Return MessageBox.Show(vstrMsg, vstrCaptionString, MessageBoxButtons.RetryCancel,
                              MessageBoxIcon.Warning)
 
   End Function 'Public Function HUWarningMessageRetryCancel()
