@@ -1,0 +1,32 @@
+object frmRegister: TfrmRegister
+  Left = 439
+  Height = 341
+  Top = 216
+  Width = 517
+  Caption = 'frmRegister'
+  ClientHeight = 341
+  ClientWidth = 517
+  LCLVersion = '1.8.4.0'
+  object bbtCancel: TBitBtn
+    Left = 424
+    Height = 30
+    Top = 296
+    Width = 75
+    Cancel = True
+    DefaultCaption = True
+    Kind = bkCancel
+    ModalResult = 2
+    TabOrder = 0
+  end
+  object BitBtn1: TBitBtn
+    Left = 336
+    Height = 30
+    Top = 296
+    Width = 75
+    Default = True
+    DefaultCaption = True
+    Kind = bkOK
+    ModalResult = 1
+    TabOrder = 1
+  end
+end
