@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\3.0.4\bin\i386-win32\fpc.exe" Date="1286835357"/>
+  <Params Value=" -MObjFPC -Scghi -WR -O1 -g -gl -l -vewnhibq &quot;-FiC:\Users\Hew\Documents\Programming Projects\HULogPrint Development\Working Copy\HUConstantsLib\lib\i386-win32&quot; &quot;-FuC:\Users\Hew\Documents\Programming Projects\HULogPrint Development\Working Copy\HUConstantsLib\&quot; &quot;-FUC:\Users\Hew\Documents\Programming Projects\HULogPrint Development\Working Copy\HUConstantsLib\lib\i386-win32\&quot; project1.pas"/>
+</CONFIG>
