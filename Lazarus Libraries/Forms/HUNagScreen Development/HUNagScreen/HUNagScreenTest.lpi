@@ -11,9 +11,6 @@
       <UseXPManifest Value="True"/>
       <Icon Value="0"/>
     </General>
-    <VersionInfo>
-      <StringTable ProductVersion=""/>
-    </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
     </BuildModes>
@@ -30,7 +27,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="2">
+    <Units Count="4">
       <Unit0>
         <Filename Value="HUNagScreenTest.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -39,9 +36,20 @@
         <Filename Value="main.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
       </Unit1>
+      <Unit2>
+        <Filename Value="hunagscreen.lfm"/>
+        <IsPartOfProject Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="hunagscreen.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+        <UnitName Value="NagScreen"/>
+      </Unit3>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

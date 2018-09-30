@@ -1,4 +1,4 @@
-unit NagScreen;
+unit HUNagScreen;
 
 {$mode objfpc}{$H+}
 
