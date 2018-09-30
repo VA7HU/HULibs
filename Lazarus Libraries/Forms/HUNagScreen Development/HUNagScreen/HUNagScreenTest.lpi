@@ -27,7 +27,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="3">
       <Unit0>
         <Filename Value="HUNagScreenTest.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -41,15 +41,12 @@
         <UnitName Value="Main"/>
       </Unit1>
       <Unit2>
-        <Filename Value="hunagscreen.lfm"/>
-        <IsPartOfProject Value="True"/>
-      </Unit2>
-      <Unit3>
         <Filename Value="hunagscreen.pas"/>
         <IsPartOfProject Value="True"/>
-        <HasResources Value="True"/>
-        <UnitName Value="NagScreen"/>
-      </Unit3>
+        <ComponentName Value="dlgHUNagScreen"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="HUNagScreen"/>
+      </Unit2>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

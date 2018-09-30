@@ -4,35 +4,27 @@ unit HUNagScreen;
 
 //========================================================================================
 //
-// Unit : NagScreen.pas
+// Unit : HUNagScreen.pas
 //
 // Description :
 //
-// Called By : AppInit : Initialize
+// Called By :
 //
 // Calls :
 //
 // Ver. : 1.00
 //
-// Date : 20 Jul 2018
+// Date : 30 Oct 2018
 //
 //========================================================================================
 
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls;
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs;
 
 type
-
-  { TfrmNagScreen }
-
-  TfrmNagScreen = class(TForm)
-    Label1: TLabel;
-    Timer1: TTimer;
-    procedure FormShow(Sender: TObject);
-    procedure Timer1Timer(Sender: TObject);
+  TdlgHUNagScreen = class(TForm)
   private
 
   public
@@ -40,11 +32,12 @@ type
   end;
 
 var
-  frmNagScreen: TfrmNagScreen;
+  dlgHUNagScreen: TdlgHUNagScreen;
 
 implementation
 
 {$R *.lfm}
+
 
 //========================================================================================
 //          PRIVATE CONSTANTS
@@ -85,10 +78,6 @@ implementation
 //========================================================================================
 //          CONTROL ROUTINES
 //========================================================================================
-procedure TfrmNagScreen.Timer1Timer(Sender: TObject);
-begin
-  Close;
-end;// procedure TfrmNagScreen.Timer1Timer
 
 //========================================================================================
 //          FILE ROUTINES
@@ -97,14 +86,7 @@ end;// procedure TfrmNagScreen.Timer1Timer
 //========================================================================================
 //          FORM ROUTINES
 //========================================================================================
-procedure TfrmNagScreen.FormShow(Sender: TObject);
-begin
- Timer1.Enabled := True;
-end;// procedure TfrmNagScreen.FormShow
 
 //========================================================================================
-
-end.// unit NagScreen
-
-
+end.// unit HUNagScreen
 

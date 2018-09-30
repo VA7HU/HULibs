@@ -4,14 +4,13 @@
     <PathDelim Value="\"/>
     <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="4">
+    <Units Count="5">
       <Unit0>
         <Filename Value="HUNagScreenTest.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="27" Y="10"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="21"/>
       </Unit0>
       <Unit1>
         <Filename Value="main.pas"/>
@@ -20,34 +19,44 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
-        <IsVisibleTab Value="True"/>
-        <CursorPos X="3" Y="9"/>
-        <UsageCount Value="20"/>
+        <CursorPos X="22" Y="17"/>
+        <UsageCount Value="21"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="hunagscreen.lfm"/>
-        <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
         <UsageCount Value="20"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit2>
       <Unit3>
         <Filename Value="hunagscreen.pas"/>
-        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmHUNagScreen"/>
         <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="HUNagScreen"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
+        <TopLine Value="26"/>
+        <CursorPos X="76" Y="145"/>
         <UsageCount Value="20"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="hunagscreen.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dlgHUNagScreen"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="HUNagScreen"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="69"/>
+        <CursorPos Y="91"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit4>
     </Units>
-    <JumpHistory Count="3" HistoryIndex="2">
+    <JumpHistory Count="10" HistoryIndex="9">
       <Position1>
         <Filename Value="main.pas"/>
         <Caret Line="2" Column="16"/>
@@ -57,9 +66,37 @@
         <Caret Line="9" Column="14"/>
       </Position2>
       <Position3>
-        <Filename Value="HUNagScreenTest.lpr"/>
-        <Caret Line="10" Column="27"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="9" Column="3"/>
       </Position3>
+      <Position4>
+        <Filename Value="main.pas"/>
+        <Caret Line="35" Column="31" TopLine="17"/>
+      </Position4>
+      <Position5>
+        <Filename Value="main.pas"/>
+        <Caret Line="9" Column="14"/>
+      </Position5>
+      <Position6>
+        <Filename Value="main.pas"/>
+        <Caret Line="9" Column="14"/>
+      </Position6>
+      <Position7>
+        <Filename Value="main.pas"/>
+        <Caret Line="35" TopLine="17"/>
+      </Position7>
+      <Position8>
+        <Filename Value="main.pas"/>
+        <Caret Line="9" Column="15"/>
+      </Position8>
+      <Position9>
+        <Filename Value="hunagscreen.pas"/>
+        <Caret Column="17"/>
+      </Position9>
+      <Position10>
+        <Filename Value="main.pas"/>
+        <Caret Line="35" Column="3" TopLine="17"/>
+      </Position10>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

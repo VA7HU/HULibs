@@ -1,28 +1,8 @@
-object frmNagScreen: TfrmNagScreen
-  Left = 709
+object dlgHUNagScreen: TdlgHUNagScreen
+  Left = 632
   Height = 240
-  Top = 127
+  Top = 119
   Width = 320
-  BorderStyle = bsNone
-  Caption = 'frmNagScreen'
-  ClientHeight = 240
-  ClientWidth = 320
-  OnShow = FormShow
-  Position = poScreenCenter
+  Caption = 'dlgHUNagScreen'
   LCLVersion = '1.8.4.0'
-  object Label1: TLabel
-    Left = 128
-    Height = 15
-    Top = 88
-    Width = 67
-    Caption = 'NAGSCREEN'
-    ParentColor = False
-  end
-  object Timer1: TTimer
-    Enabled = False
-    Interval = 5000
-    OnTimer = Timer1Timer
-    left = 68
-    top = 134
-  end
 end
