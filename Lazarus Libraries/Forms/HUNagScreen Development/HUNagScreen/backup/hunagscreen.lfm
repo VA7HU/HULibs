@@ -1,0 +1,8 @@
+object frmHUNagScreen: TfrmHUNagScreen
+  Left = 632
+  Height = 240
+  Top = 119
+  Width = 320
+  Caption = 'frmHUNagScreen'
+  LCLVersion = '1.8.4.0'
+end
