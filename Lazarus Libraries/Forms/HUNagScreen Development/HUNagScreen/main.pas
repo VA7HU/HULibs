@@ -29,8 +29,9 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    bbtTest: TBitBtn;
-    procedure bbtTestClick(Sender: TObject);
+    bbtTest1: TBitBtn;
+    procedure bbtTest1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
 
   public
@@ -83,10 +84,11 @@ implementation
 //========================================================================================
 //          CONTROL ROUTINES
 //========================================================================================
-procedure TForm1.bbtTestClick(Sender: TObject);
+procedure TForm1.bbtTest1Click(Sender: TObject);
 begin
+  // Default settings
   dlgHUNagScreen.ShowModal;
-end;
+end;// procedure TForm1.bbtTestClick
 
 //========================================================================================
 //          FILE ROUTINES
@@ -95,6 +97,10 @@ end;
 //========================================================================================
 //          FORM ROUTINES
 //========================================================================================
+procedure TForm1.FormShow(Sender: TObject);
+begin
+
+end;// procedure TForm1.FormShow
 
 //========================================================================================
 end.// unit Main

@@ -27,7 +27,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="3">
+    <Units Count="6">
       <Unit0>
         <Filename Value="HUNagScreenTest.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -44,9 +44,25 @@
         <Filename Value="hunagscreen.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="dlgHUNagScreen"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="HUNagScreen"/>
       </Unit2>
+      <Unit3>
+        <Filename Value="..\..\..\Units\HUConstants Development\huconstants.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="HUConstants"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\..\..\Units\HUValidations Development\huvalidations.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="HUValidations"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\..\..\Units\HUMessageBoxes Development\humessageboxes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="HUMessageBoxes"/>
+      </Unit5>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -57,6 +73,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="..\..\..\Units\HUConstants Development;..\..\..\Units\HUValidations Development;..\..\..\Units\HUMessageBoxes Development"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
