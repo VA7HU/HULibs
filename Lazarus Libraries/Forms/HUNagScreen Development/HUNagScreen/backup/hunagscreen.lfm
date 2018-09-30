@@ -10,6 +10,7 @@ object dlgHUNagScreen: TdlgHUNagScreen
   ClientWidth = 454
   OnCreate = FormCreate
   OnShow = FormShow
+  Position = poScreenCenter
   LCLVersion = '1.8.4.0'
   object bbtNo: TBitBtn
     Left = 336
@@ -42,6 +43,7 @@ object dlgHUNagScreen: TdlgHUNagScreen
     Width = 75
     DefaultCaption = True
     Kind = bkHelp
+    OnClick = bbtHelpClick
     TabOrder = 2
   end
   object Memo1: TMemo

@@ -14,7 +14,7 @@ unit HUNagScreen;
 //
 // Ver. : 1.00
 //
-// Date : 30 Oct 2018
+// Date : 30 Sep 2018
 //
 //========================================================================================
 
@@ -23,7 +23,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Buttons,
   StdCtrls,
-  HUConstants;
+  HUConstants, HUMessageBoxes, HURegister;
 
 type
 
@@ -34,6 +34,7 @@ type
     bbtYes: TBitBtn;
     bbtHelp: TBitBtn;
     Memo1: TMemo;
+    procedure bbtHelpClick(Sender: TObject);
     procedure bbtNoClick(Sender: TObject);
     procedure bbtYesClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -68,9 +69,9 @@ const
                  K_CR + K_CR +
                  'Your registration data will never be sold or shared.' +
                  K_CR + K_CR +
-                 'Would you like to register now? If not, you can register at' +
+                 'Would you like to register now? If not, you can register later' +
                  K_CR +
-                 'any time later by using the <Help - Register> menu item.' +
+                 'by using your application <Help - Register> menu item.' +
                  K_CR;
 
 //========================================================================================
@@ -113,6 +114,12 @@ end;// procedure TdlgHUNagScreen.SetNagMsgTitle
 
 //========================================================================================
 //          COMMAND BUTTON ROUTINES
+//========================================================================================
+procedure TdlgHUNagScreen.bbtHelpClick(Sender: TObject);
+begin
+  HUNotImplementedMsgOK('Help');
+end;// procedure TdlgHUNagScreen.bbtHelpClick
+
 //========================================================================================
 procedure TdlgHUNagScreen.bbtNoClick(Sender: TObject);
 begin

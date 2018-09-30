@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Main, HUNagScreen;
+  Forms, Main, HUNagScreen, HURegister;
 
 {$R *.res}
 
@@ -16,6 +16,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TdlgHUNagScreen, dlgHUNagScreen);
+  Application.CreateForm(TdlgHURegister, dlgHURegister);
   Application.Run;
 end.
 
