@@ -1,8 +1,45 @@
 object dlgHURegister: TdlgHURegister
-  Left = 632
-  Height = 240
-  Top = 119
-  Width = 320
+  Left = 325
+  Height = 403
+  Top = 95
+  Width = 720
   Caption = 'dlgHURegister'
+  ClientHeight = 403
+  ClientWidth = 720
+  OnCreate = FormCreate
+  OnShow = FormShow
   LCLVersion = '1.8.4.0'
+  object bbtCancel: TBitBtn
+    Left = 608
+    Height = 30
+    Top = 344
+    Width = 75
+    Cancel = True
+    DefaultCaption = True
+    Kind = bkCancel
+    ModalResult = 2
+    OnClick = bbtCancelClick
+    TabOrder = 0
+  end
+  object bbtSave: TBitBtn
+    Left = 512
+    Height = 30
+    Top = 344
+    Width = 75
+    Caption = '&Save'
+    Kind = bkAll
+    ModalResult = 8
+    OnClick = bbtSaveClick
+    TabOrder = 1
+  end
+  object bbtHelp: TBitBtn
+    Left = 64
+    Height = 30
+    Top = 344
+    Width = 75
+    DefaultCaption = True
+    Kind = bkHelp
+    OnClick = bbtHelpClick
+    TabOrder = 2
+  end
 end

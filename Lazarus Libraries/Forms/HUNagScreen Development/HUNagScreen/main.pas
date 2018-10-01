@@ -14,7 +14,7 @@ unit Main;
 //
 // Ver. : 1.00
 //
-// Date : 30 Oct 2018
+// Date : 30 Sep 2018
 //
 //========================================================================================
 
@@ -30,7 +30,9 @@ type
 
   TForm1 = class(TForm)
     bbtTest1: TBitBtn;
+    bbtTest2: TBitBtn;
     procedure bbtTest1Click(Sender: TObject);
+    procedure bbtTest2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
 
@@ -89,6 +91,14 @@ begin
   // Default settings
   dlgHUNagScreen.ShowModal;
 end;// procedure TForm1.bbtTestClick
+
+//----------------------------------------------------------------------------------------
+procedure TForm1.bbtTest2Click(Sender: TObject);
+begin
+  // Change the Dialog Box Title
+  dlgHUNagScreen.pDlgTitle := 'New Title';
+  dlgHUNagScreen.ShowModal;
+end;// procedure TForm1.bbtTest2Click
 
 //========================================================================================
 //          FILE ROUTINES

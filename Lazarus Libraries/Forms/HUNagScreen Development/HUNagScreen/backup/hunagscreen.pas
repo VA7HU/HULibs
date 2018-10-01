@@ -129,7 +129,7 @@ end;// procedure TdlgHUNagScreen.bbtNoClick
 //========================================================================================
 procedure TdlgHUNagScreen.bbtYesClick(Sender: TObject);
 begin
-
+  //frmHURegister.ShowModal;
 end;// procedure TdlgHUNagScreen.bbtYesClick
 
 //========================================================================================

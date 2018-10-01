@@ -32,14 +32,13 @@ type
     bbtCancel: TBitBtn;
     procedure bbtCancelClick(Sender: TObject);
     procedure bbtOKClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
   private
 
   public
 
   end;
 
-const  gtklib = 'HUConstants.dll';
+//const  gtklib = 'HUConstants.dll';
 
 var
   frmHURegister: TfrmHURegister;
@@ -105,10 +104,6 @@ end;// procedure TfrmHURegister.bbtOKClick
 //========================================================================================
 //          FORM ROUTINES
 //========================================================================================
-procedure TfrmHURegister.FormCreate(Sender: TObject);
-begin
-  //ShowMessage('HURegister Create');
-end;
 
 //========================================================================================
 end.// unit HURegister
