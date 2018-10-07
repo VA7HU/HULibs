@@ -1,8 +1,0 @@
-object dlgHURegister: TdlgHURegister
-  Left = 632
-  Height = 240
-  Top = 119
-  Width = 320
-  Caption = 'dlgHURegister'
-  LCLVersion = '1.8.4.0'
-end
