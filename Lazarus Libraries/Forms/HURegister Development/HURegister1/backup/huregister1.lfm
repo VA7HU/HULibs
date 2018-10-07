@@ -3,9 +3,12 @@ object dlgHURegister1: TdlgHURegister1
   Height = 167
   Top = 115
   Width = 457
+  BorderIcons = []
+  BorderStyle = bsDialog
   Caption = 'Registration Data'
   ClientHeight = 167
   ClientWidth = 457
+  OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.8.4.0'
   object Cancel: TBitBtn
@@ -18,7 +21,7 @@ object dlgHURegister1: TdlgHURegister1
     Kind = bkCancel
     ModalResult = 2
     OnClick = CancelClick
-    TabOrder = 4
+    TabOrder = 5
   end
   object bbtOK: TBitBtn
     Left = 259
@@ -29,7 +32,7 @@ object dlgHURegister1: TdlgHURegister1
     Kind = bkYesToAll
     ModalResult = 1
     OnClick = bbtOKClick
-    TabOrder = 3
+    TabOrder = 4
   end
   object edtFirstName: TEdit
     Left = 96
@@ -37,6 +40,7 @@ object dlgHURegister1: TdlgHURegister1
     Top = 32
     Width = 112
     AutoSelect = False
+    OnExit = edtFirstNameExit
     OnKeyPress = edtFirstNameKeyPress
     TabOrder = 0
   end
@@ -49,9 +53,9 @@ object dlgHURegister1: TdlgHURegister1
     ParentColor = False
   end
   object Label2: TLabel
-    Left = 240
+    Left = 224
     Height = 15
-    Top = 36
+    Top = 40
     Width = 65
     Caption = 'Last Name : '
     ParentColor = False
@@ -62,11 +66,12 @@ object dlgHURegister1: TdlgHURegister1
     Top = 32
     Width = 112
     AutoSelect = False
+    OnExit = edtLastNameExit
     OnKeyPress = edtLastNameKeyPress
-    TabOrder = 1
+    TabOrder = 2
   end
   object Label3: TLabel
-    Left = 136
+    Left = 24
     Height = 15
     Top = 76
     Width = 51
@@ -74,13 +79,14 @@ object dlgHURegister1: TdlgHURegister1
     ParentColor = False
   end
   object edtCallSign: TEdit
-    Left = 208
+    Left = 96
     Height = 23
-    Top = 72
+    Top = 70
     Width = 112
     AutoSelect = False
+    OnExit = edtCallSignExit
     OnKeyPress = edtCallSignKeyPress
-    TabOrder = 2
+    TabOrder = 3
   end
   object bbtHelp: TBitBtn
     Left = 27
@@ -90,6 +96,27 @@ object dlgHURegister1: TdlgHURegister1
     DefaultCaption = True
     Kind = bkHelp
     OnClick = bbtHelpClick
-    TabOrder = 5
+    TabOrder = 6
+  end
+  object Label4: TLabel
+    Left = 224
+    Height = 15
+    Top = 74
+    Width = 94
+    Caption = 'Registration Key : '
+    ParentColor = False
+  end
+  object edtRegKey: TEdit
+    Left = 320
+    Height = 23
+    Top = 70
+    Width = 112
+    Alignment = taCenter
+    AutoSelect = False
+    Color = clBtnFace
+    OnKeyPress = edtLastNameKeyPress
+    ReadOnly = True
+    TabStop = False
+    TabOrder = 1
   end
 end

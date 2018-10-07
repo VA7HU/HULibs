@@ -98,7 +98,7 @@ begin
                     Exit; // [a..z]
                   end;
     else
-      Result := K_NULL;
+      Result := K_NUKKl;
     end;// case Key of
 
 end;// function ValidCallsignCharacter(var Key: char);

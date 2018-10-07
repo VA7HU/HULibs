@@ -10,7 +10,7 @@ unit HURegister1;
 //
 // Called By :
 //
-// Calls :
+// Calls : HUValidations : ValidNameCharacter
 //
 // Ver. : 1.00
 //
@@ -22,7 +22,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Buttons,
-  StdCtrls;
+  StdCtrls,
+  HUValidations;
 
 type
 
@@ -35,21 +36,30 @@ type
     edtFirstName: TEdit;
     edtLastName: TEdit;
     edtCallSign: TEdit;
+    edtRegKey: TEdit;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    Label4: TLabel;
     procedure bbtHelpClick(Sender: TObject);
     procedure bbtOKClick(Sender: TObject);
     procedure CancelClick(Sender: TObject);
+    procedure edtCallSignExit(Sender: TObject);
     procedure edtCallSignKeyPress(Sender: TObject; var Key: char);
+    procedure edtFirstNameExit(Sender: TObject);
     procedure edtFirstNameKeyPress(Sender: TObject; var Key: char);
+    procedure edtLastNameExit(Sender: TObject);
     procedure edtLastNameKeyPress(Sender: TObject; var Key: char);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
-
+    fRegistrationKey : string;
+    function GetRegistrationKey : string;
+    procedure SetRegistrationKey(RegKey : string);
   public
-
-  end;
+    property pRegistrationKey : string read GetRegistrationKey
+                                     write SetRegistrationKey;
+  end;// TdlgHURegister1
 
 var
   dlgHURegister1: TdlgHURegister1;
@@ -77,6 +87,16 @@ implementation
 //========================================================================================
 //          PRIVATE ROUTINES
 //========================================================================================
+function GenerateKey (SeedVal : string) : string;
+begin
+
+end;// function GenerateKey
+
+//========================================================================================
+function DataComplete : boolean;
+begin
+
+end;// function DataComplete
 
 //========================================================================================
 //          PUBLIC ROUTINES
@@ -85,6 +105,16 @@ implementation
 //========================================================================================
 //          PROPERTY ROUTINES
 //========================================================================================
+function TdlgHURegister1.GetRegistrationKey: string;
+begin
+   Result := fRegistrationKey;
+end;// function TfrmAppSetup.GetRegistrationKey
+
+//----------------------------------------------------------------------------------------
+procedure TdlgHURegister1.SetRegistrationKey(RegKey: string);
+begin
+    fRegistrationKey := RegKey;
+end;// procedure TfrmAppSetup.SetRegistrationKey
 
 //========================================================================================
 //          MENU ROUTINES
@@ -115,20 +145,38 @@ end;// procedure TdlgHURegister1.CancelClick
 //========================================================================================
 procedure TdlgHURegister1.edtFirstNameKeyPress(Sender: TObject; var Key: char);
 begin
-
+  Key := ValidNameCharacter(Key);
 end;// procedure TdlgHURegister1.edtFirstNameKeyPress
 
-//========================================================================================
+//----------------------------------------------------------------------------------------
 procedure TdlgHURegister1.edtCallSignKeyPress(Sender: TObject; var Key: char);
 begin
-
+  Key := ValidCallsignCharacter(Key);
 end;// procedure TdlgHURegister1.edtCallSignKeyPress
 
-//========================================================================================
+//----------------------------------------------------------------------------------------
 procedure TdlgHURegister1.edtLastNameKeyPress(Sender: TObject; var Key: char);
 begin
-
+  Key := ValidNameCharacter(Key);
 end;// procedure TdlgHURegister1.edtLastNameKeyPress
+
+//========================================================================================
+procedure TdlgHURegister1.edtFirstNameExit(Sender: TObject);
+begin
+
+end;// procedure TdlgHURegister1.edtFirstNameExit
+
+//----------------------------------------------------------------------------------------
+procedure TdlgHURegister1.edtLastNameExit(Sender: TObject);
+begin
+
+end;// procedure TdlgHURegister1.edtLastNameExit
+
+//----------------------------------------------------------------------------------------
+procedure TdlgHURegister1.edtCallSignExit(Sender: TObject);
+begin
+
+end;// procedure TdlgHURegister1.edtCallSignExit
 
 //========================================================================================
 //          FILE ROUTINES
@@ -137,9 +185,18 @@ end;// procedure TdlgHURegister1.edtLastNameKeyPress
 //========================================================================================
 //          FORM ROUTINES
 //========================================================================================
+procedure TdlgHURegister1.FormCreate(Sender: TObject);
+begin
+  //fRegistrationKey := '';
+end;// procedure TdlgHURegister1.FormCreate
+
+//========================================================================================
 procedure TdlgHURegister1.FormShow(Sender: TObject);
 begin
+  fRegistrationKey := '';
+  edtRegKey.Text := fRegistrationKey;
   edtFirstName.SetFocus;
+  bbtOK.Enabled := False;
 end;// procedure TdlgHURegister1.FormShow
 
 //========================================================================================

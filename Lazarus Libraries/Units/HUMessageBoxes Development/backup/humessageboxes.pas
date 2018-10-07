@@ -73,14 +73,14 @@ const
 
 function HUErrorMsgOK (ErrorType, ErrorMsg : String) : Integer;
 begin
-  Result := MessageDlg('ERROR' + ErrorType, ErrorMsg, mtError,
+  Result := MessageDlg('ERROR - ' + ErrorType, ErrorMsg, mtError,
   [mbOK],0);
 end;// function HUErrorMsgOK
 
 //----------------------------------------------------------------------------------------
 function HUErrorMsgYN (ErrorType, ErrorMsg : String) : Integer;
 begin
-  Result := MessageDlg('ERROR' + ErrorType, ErrorMsg, mtError,
+  Result := MessageDlg('ERROR - ' + ErrorType, ErrorMsg, mtError,
   [mbYes, mbNo],0);
 end;// function HUErrorMsgYN
 
@@ -90,13 +90,13 @@ end;// function HUErrorMsgYN
 
 function HUInformationMsgOK (InformationType, InformationMsg : String) : Integer;
 begin
-  Result := MessageDlg('INFORMATION' + InformationType, InformationType, mtError,
+  Result := MessageDlg('INFORMATION - ' + InformationType, InformationType, mtError,
   [mbOK],0);
 end;// function HUInformationMsgOK
 
 function HUNotImplementedMsgOK (InformationType: String) : Integer;
 begin
-   Result := MessageDlg('INFORMATION' + InformationType, imNotImplementedMsg, mtError,
+   Result := MessageDlg('INFORMATION - ' + InformationType, imNotImplementedMsg, mtError,
   [mbOK],0);
 end;// function HUNotImplementedMsgOK
 

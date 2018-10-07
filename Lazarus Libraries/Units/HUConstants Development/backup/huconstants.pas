@@ -33,7 +33,6 @@ const
   // KEY CONSTANTS
   K_BS   = #08;
   K_DASH = #45;
-  K_FSLASH = #47;
   K_CR   = #13;
   K_LF   = #10;
   K_NULL = #00;
