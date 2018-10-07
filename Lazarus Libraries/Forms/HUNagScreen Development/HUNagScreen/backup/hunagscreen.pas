@@ -23,7 +23,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Buttons,
   StdCtrls,
-  HUConstants, HUMessageBoxes, HURegister;
+  HUConstants, HUMessageBoxes;
 
 type
 
