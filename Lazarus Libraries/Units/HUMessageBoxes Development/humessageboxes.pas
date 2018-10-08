@@ -15,7 +15,7 @@ unit HUMessageBoxes;
 //
 // Ver. : 1.00
 //
-// Date : 30 Sep 2018
+// Date : 8 Oct 2018
 //
 //========================================================================================
 
@@ -30,6 +30,9 @@ function HUErrorMsgYN (ErrorType, ErrorMsg : String) : Integer;
 
 function HUInformationMsgOK (InformationType , InformationMsg: String) : Integer;
 function HUNotImplementedMsgOK (InformationType : String) : Integer;
+
+function HUConfirmMsgYN (ConfirmType, ConfirmMsg : String) : Integer;
+
 
 implementation
 
@@ -86,18 +89,26 @@ end;// function HUErrorMsgYN
 
                     {CONFIRMATION MESSAGES}
 
+function HUConfirmMsgYN (ConfirmType, ConfirmMsg : String) : Integer;
+begin
+  Result := MessageDlg('CONFIRMATION - ' + ConfirmType, ConfirmMsg, mtConfirmation,
+  [mbYes, mbNo],0);
+end;// function HUConfirmMsgYN
+
+
+
                     {INFORMATION MESSAGES}
 
 function HUInformationMsgOK (InformationType, InformationMsg : String) : Integer;
 begin
-  Result := MessageDlg('INFORMATION - ' + InformationType, InformationType, mtError,
+  Result := MessageDlg('INFORMATION - ' + InformationType, InformationType, mtInformation,
   [mbOK],0);
 end;// function HUInformationMsgOK
 
 function HUNotImplementedMsgOK (InformationType: String) : Integer;
 begin
-   Result := MessageDlg('INFORMATION - ' + InformationType, imNotImplementedMsg, mtError,
-  [mbOK],0);
+   Result := MessageDlg('INFORMATION - ' + InformationType, imNotImplementedMsg,
+                                                            mtInformation, [mbOK],0);
 end;// function HUNotImplementedMsgOK
 
 //========================================================================================

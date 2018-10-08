@@ -10,17 +10,18 @@ object dlgHURegister1: TdlgHURegister1
   ClientWidth = 457
   OnCreate = FormCreate
   OnShow = FormShow
+  Position = poScreenCenter
   LCLVersion = '1.8.4.0'
-  object Cancel: TBitBtn
+  object bbtCancel: TBitBtn
     Left = 355
     Height = 30
     Top = 112
     Width = 75
     Cancel = True
-    DefaultCaption = True
+    Caption = '&Cancel'
     Kind = bkCancel
-    ModalResult = 2
-    OnClick = CancelClick
+    ModalResult = 11
+    OnClick = bbtCancelClick
     TabOrder = 5
   end
   object bbtOK: TBitBtn
@@ -40,6 +41,7 @@ object dlgHURegister1: TdlgHURegister1
     Top = 32
     Width = 112
     AutoSelect = False
+    OnEnter = edtFirstNameEnter
     OnExit = edtFirstNameExit
     OnKeyPress = edtFirstNameKeyPress
     TabOrder = 0
@@ -66,6 +68,7 @@ object dlgHURegister1: TdlgHURegister1
     Top = 32
     Width = 112
     AutoSelect = False
+    OnEnter = edtLastNameEnter
     OnExit = edtLastNameExit
     OnKeyPress = edtLastNameKeyPress
     TabOrder = 2
@@ -84,6 +87,7 @@ object dlgHURegister1: TdlgHURegister1
     Top = 70
     Width = 112
     AutoSelect = False
+    OnEnter = edtCallSignEnter
     OnExit = edtCallSignExit
     OnKeyPress = edtCallSignKeyPress
     TabOrder = 3

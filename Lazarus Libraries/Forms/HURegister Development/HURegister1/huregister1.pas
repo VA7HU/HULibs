@@ -10,7 +10,8 @@ unit HURegister1;
 //
 // Called By :
 //
-// Calls : HUValidations : ValidNameCharacter
+// Calls : HUMessageBoxes : HUConfirmMsgYN
+//         HUValidations : ValidNameCharacter
 //
 // Ver. : 1.00
 //
@@ -23,7 +24,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Buttons,
   StdCtrls,
-  HUValidations;
+  HUMessageBoxes, HUValidations;
 
 type
 
@@ -32,7 +33,7 @@ type
   TdlgHURegister1 = class(TForm)
     bbtOK: TBitBtn;
     bbtHelp: TBitBtn;
-    Cancel: TBitBtn;
+    bbtCancel: TBitBtn;
     edtFirstName: TEdit;
     edtLastName: TEdit;
     edtCallSign: TEdit;
@@ -43,15 +44,20 @@ type
     Label4: TLabel;
     procedure bbtHelpClick(Sender: TObject);
     procedure bbtOKClick(Sender: TObject);
-    procedure CancelClick(Sender: TObject);
+    procedure bbtCancelClick(Sender: TObject);
+    procedure edtCallSignEnter(Sender: TObject);
     procedure edtCallSignExit(Sender: TObject);
     procedure edtCallSignKeyPress(Sender: TObject; var Key: char);
+    procedure edtFirstNameEnter(Sender: TObject);
     procedure edtFirstNameExit(Sender: TObject);
     procedure edtFirstNameKeyPress(Sender: TObject; var Key: char);
+    procedure edtLastNameEnter(Sender: TObject);
     procedure edtLastNameExit(Sender: TObject);
     procedure edtLastNameKeyPress(Sender: TObject; var Key: char);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    function DataComplete : boolean;
+    function GenerateKey (SeedVal : string) : string;
   private
     fRegistrationKey : string;
     function GetRegistrationKey : string;
@@ -71,6 +77,9 @@ implementation
 //========================================================================================
 //          PRIVATE CONSTANTS
 //========================================================================================
+const
+
+  clMandatoryField = $00CACAFF;
 
 //========================================================================================
 //          PUBLIC CONSTANTS
@@ -87,16 +96,32 @@ implementation
 //========================================================================================
 //          PRIVATE ROUTINES
 //========================================================================================
-function GenerateKey (SeedVal : string) : string;
+function TdlgHURegister1.GenerateKey (SeedVal : string) : string;
 begin
 
-end;// function GenerateKey
+end;// function TdlgHURegister1.GenerateKey
 
 //========================================================================================
-function DataComplete : boolean;
+function TdlgHURegister1.DataComplete : boolean;
+
+const
+  cblnMaxNameLen = 2;
+var
+  Complete : boolean;
 begin
 
-end;// function DataComplete
+  Complete := False;
+
+  if not Length(edtFirstName.Text) > cblnMaxNameLen then
+    Complete := False;
+  if not Length(edtLastName.Text) > cblnMaxNameLen then
+    Complete := False;
+  if not Length(edtFirstName.Text) > cblnMaxNameLen then
+    Complete := False;
+
+  DataComplete := Complete;
+
+end;// function TdlgHURegister1.DataComplete
 
 //========================================================================================
 //          PUBLIC ROUTINES
@@ -135,9 +160,9 @@ begin
 end;// procedure TdlgHURegister1.bbtHelpClick
 
 //========================================================================================
-procedure TdlgHURegister1.CancelClick(Sender: TObject);
+procedure TdlgHURegister1.bbtCancelClick(Sender: TObject);
 begin
-
+  HUConfirmMsgYN ('ConfirmType', 'ConfirmMsg');
 end;// procedure TdlgHURegister1.CancelClick
 
 //========================================================================================
@@ -161,8 +186,34 @@ begin
 end;// procedure TdlgHURegister1.edtLastNameKeyPress
 
 //========================================================================================
+procedure TdlgHURegister1.edtFirstNameEnter(Sender: TObject);
+begin
+  edtFirstName.Color := clDefault;
+end;// procedure TdlgHURegister1.edtFirstNameEnter
+
+//----------------------------------------------------------------------------------------
+procedure TdlgHURegister1.edtLastNameEnter(Sender: TObject);
+begin
+  edtLastName.Color := clDefault;
+end;// procedure TdlgHURegister1.edtLastNameEnter
+
+//----------------------------------------------------------------------------------------
+procedure TdlgHURegister1.edtCallSignEnter(Sender: TObject);
+begin
+  edtCallSign.Color := clDefault;
+end;// procedure TdlgHURegister1.edtCallSignEnter
+
+//========================================================================================
 procedure TdlgHURegister1.edtFirstNameExit(Sender: TObject);
 begin
+
+  if not DataComplete then
+    //begin
+     //if bbtCancel.Focused then
+       //Exit;
+     edtFirstName.Color := clMandatoryField;
+     showmessage('Mandatory Field');
+    //end;// if not DataComplete
 
 end;// procedure TdlgHURegister1.edtFirstNameExit
 
@@ -170,11 +221,27 @@ end;// procedure TdlgHURegister1.edtFirstNameExit
 procedure TdlgHURegister1.edtLastNameExit(Sender: TObject);
 begin
 
+  if not DataComplete then
+    begin
+     if bbtCancel.Focused then
+       Exit;
+     edtLastName.Color := clMandatoryField;
+     showmessage('Mandatory Field');
+    end;// if not DataComplete
+
 end;// procedure TdlgHURegister1.edtLastNameExit
 
 //----------------------------------------------------------------------------------------
 procedure TdlgHURegister1.edtCallSignExit(Sender: TObject);
 begin
+
+  if not DataComplete then
+    begin
+     if bbtCancel.Focused then
+       Exit;
+     edtCallSign.Color := clMandatoryField;
+     showmessage('Mandatory Field');
+    end;// if not DataComplete
 
 end;// procedure TdlgHURegister1.edtCallSignExit
 
