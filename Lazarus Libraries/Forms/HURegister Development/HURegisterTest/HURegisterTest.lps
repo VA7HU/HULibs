@@ -20,7 +20,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
-        <TopLine Value="17"/>
+        <TopLine Value="29"/>
         <CursorPos X="17" Y="35"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
@@ -45,8 +45,8 @@
         <UnitName Value="HURegister1"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="448"/>
-        <CursorPos Y="470"/>
+        <TopLine Value="442"/>
+        <CursorPos X="57" Y="213"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
