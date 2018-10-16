@@ -5,8 +5,8 @@ unit Main;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Buttons{,
-  HURegister};
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Buttons,
+  HURegister1;
 
 type
 
@@ -32,7 +32,7 @@ implementation
 
 procedure TfrmMain.bbtTest1Click(Sender: TObject);
 begin
-  //dlgHURegister.ShowModal;
+  dlgHURegister1.ShowModal;
 end;
 
 end.

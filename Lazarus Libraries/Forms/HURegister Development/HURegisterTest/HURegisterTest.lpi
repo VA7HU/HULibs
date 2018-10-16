@@ -27,7 +27,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="3">
+    <Units Count="7">
       <Unit0>
         <Filename Value="HURegisterTest.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -41,12 +41,28 @@
         <UnitName Value="Main"/>
       </Unit1>
       <Unit2>
-        <Filename Value="huregister.pas"/>
+        <Filename Value="..\HURegister1\huregister1.lfm"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="dlgHURegister"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="HURegister"/>
       </Unit2>
+      <Unit3>
+        <Filename Value="..\HURegister1\huregister1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+        <UnitName Value="HURegister1"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\..\..\Units\HUMessageBoxes Development\humessageboxes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="HUMessageBoxes"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\..\..\Units\HUConstants Development\huconstants.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\..\..\Units\HUValidations Development\huvalidations.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit6>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -57,6 +73,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="..\HURegister1;..\..\..\Units\HUMessageBoxes Development;..\..\..\Units\HUConstants Development;..\..\..\Units\HUValidations Development"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
