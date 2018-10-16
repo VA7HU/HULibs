@@ -101,7 +101,7 @@ end;// function HUConfirmMsgYN
 
 function HUInformationMsgOK (InformationType, InformationMsg : String) : Integer;
 begin
-  Result := MessageDlg('INFORMATION - ' + InformationType, InformationType, mtInformation,
+  Result := MessageDlg('INFORMATION - ' + InformationType, InformationMsg, mtInformation,
   [mbOK],0);
 end;// function HUInformationMsgOK
 

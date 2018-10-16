@@ -4,13 +4,13 @@
     <PathDelim Value="\"/>
     <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="12">
+    <Units Count="13">
       <Unit0>
         <Filename Value="HURegisterTest.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="1"/>
         <CursorPos X="57" Y="18"/>
-        <UsageCount Value="20"/>
+        <UsageCount Value="22"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -20,14 +20,66 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="17"/>
-        <CursorPos X="43" Y="29"/>
-        <UsageCount Value="20"/>
+        <CursorPos X="17" Y="35"/>
+        <UsageCount Value="22"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
+        <Filename Value="..\HURegister1\huregister1.lfm"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="22"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\HURegister1\huregister1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dlgHURegister1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="HURegister1"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="266"/>
+        <CursorPos Y="278"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\..\..\Units\HUMessageBoxes Development\humessageboxes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="HUMessageBoxes"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="93"/>
+        <CursorPos X="74" Y="104"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\..\..\Units\HUConstants Development\huconstants.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="22"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\..\..\Units\HUValidations Development\huvalidations.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="22"/>
+      </Unit6>
+      <Unit7>
         <Filename Value="huregister.pas"/>
         <ComponentName Value="dlgHURegister"/>
         <ResourceBaseClass Value="Form"/>
@@ -35,8 +87,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="17" Y="8"/>
         <UsageCount Value="20"/>
-      </Unit2>
-      <Unit3>
+      </Unit7>
+      <Unit8>
         <Filename Value="huregister.lfm"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
@@ -44,16 +96,16 @@
         <CursorPos X="-1" Y="-1"/>
         <UsageCount Value="20"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit3>
-      <Unit4>
+      </Unit8>
+      <Unit9>
         <Filename Value="C:\lazarus\lcl\forms.pp"/>
         <UnitName Value="Forms"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1808"/>
         <CursorPos X="3" Y="1819"/>
         <UsageCount Value="10"/>
-      </Unit4>
-      <Unit5>
+      </Unit9>
+      <Unit10>
         <Filename Value="huregistration.pas"/>
         <ComponentName Value="frmHURegistration"/>
         <ResourceBaseClass Value="Form"/>
@@ -62,65 +114,24 @@
         <TopLine Value="4"/>
         <CursorPos X="26" Y="19"/>
         <UsageCount Value="20"/>
-      </Unit5>
-      <Unit6>
+      </Unit10>
+      <Unit11>
         <Filename Value="C:\lazarus\lcl\include\customform.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2053"/>
         <CursorPos X="40" Y="2065"/>
         <UsageCount Value="10"/>
-      </Unit6>
-      <Unit7>
-        <Filename Value="..\HURegister1\huregister1.lfm"/>
-        <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="20"/>
-        <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit7>
-      <Unit8>
-        <Filename Value="..\HURegister1\huregister1.pas"/>
-        <IsPartOfProject Value="True"/>
-        <HasResources Value="True"/>
-        <UnitName Value="HURegister1"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="16"/>
-        <CursorPos X="19" Y="27"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
-      </Unit8>
-      <Unit9>
-        <Filename Value="..\..\..\Units\HUMessageBoxes Development\humessageboxes.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="HUMessageBoxes"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="15"/>
-        <CursorPos X="3" Y="26"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
-      </Unit9>
-      <Unit10>
-        <Filename Value="..\..\..\Units\HUConstants Development\huconstants.pas"/>
-        <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="20"/>
-      </Unit10>
-      <Unit11>
-        <Filename Value="..\..\..\Units\HUValidations Development\huvalidations.pas"/>
-        <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="20"/>
       </Unit11>
+      <Unit12>
+        <Filename Value="C:\lazarus\lcl\dialogs.pp"/>
+        <UnitName Value="Dialogs"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="24"/>
+        <CursorPos X="41" Y="35"/>
+        <UsageCount Value="10"/>
+      </Unit12>
     </Units>
-    <JumpHistory Count="14" HistoryIndex="13">
+    <JumpHistory Count="16" HistoryIndex="15">
       <Position1>
         <Filename Value="main.pas"/>
         <Caret Column="10"/>
@@ -177,6 +188,14 @@
         <Filename Value="main.pas"/>
         <Caret Line="9" Column="14"/>
       </Position14>
+      <Position15>
+        <Filename Value="main.pas"/>
+        <Caret Line="29" Column="43" TopLine="17"/>
+      </Position15>
+      <Position16>
+        <Filename Value="..\..\..\Units\HUMessageBoxes Development\humessageboxes.pas"/>
+        <Caret Line="104" Column="91" TopLine="89"/>
+      </Position16>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

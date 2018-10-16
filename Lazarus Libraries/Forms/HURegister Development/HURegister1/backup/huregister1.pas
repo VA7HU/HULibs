@@ -10,11 +10,13 @@ unit HURegister1;
 //
 // Called By :
 //
-// Calls : HUValidations : ValidNameCharacter
+// Calls : HUMessageBoxes : HUConfirmMsgYN
+//                          HUInformationMsgOK
+//         HUValidations : ValidNameCharacter
 //
-// Ver. : 1.00
+// Ver. : 1.01
 //
-// Date : 7 Oct 2018
+// Date : 16 Oct 2018
 //
 //========================================================================================
 
@@ -36,7 +38,7 @@ type
     edtFirstName: TEdit;
     edtLastName: TEdit;
     edtCallSign: TEdit;
-    edtRegKey: TEdit;
+    edtRegistrationKey: TEdit;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -58,12 +60,27 @@ type
     function DataComplete : boolean;
     function GenerateKey (SeedVal : string) : string;
   private
+    fFirstName : string;
+    fLastName : string;
+    fCallSign : string;
     fRegistrationKey : string;
+    function GetFirstName : string;
+    procedure SetFirstName(FName : string);
+    function GetLastName : string;
+    procedure SetLastName(LName : string);
+    function GetCallSign : string;
+    procedure SetCallSign(Call : string);
     function GetRegistrationKey : string;
     procedure SetRegistrationKey(RegKey : string);
   public
     property pRegistrationKey : string read GetRegistrationKey
                                      write SetRegistrationKey;
+    property pFirstName : string read GetFirstName
+                                     write SetFirstName;
+    property pLastName : string read GetLastName
+                                     write SetLastName;
+    property pCallSign : string read GetCallSign
+                                     write SetCallSign;
   end;// TdlgHURegister1
 
 var
@@ -79,6 +96,14 @@ implementation
 const
 
   clMandatoryField = $00CACAFF;
+
+  CmsgConfirmCancelType = 'Confirm Cancel';
+  CmsgConfirmCancelText = 'Confirm you wish to cancel thid registration ?';
+
+  ImsgMandatoryFieldType = 'Mandatory Field';
+  ImsgMandatoryFNameText = 'Your First Name is a Mandatory field';
+  ImsgMandatoryLNameText = 'Your Last Name is a Mandatory field';
+  ImsgMandatoryCallSignText = 'Your CallSigne is a Mandatory field';
 
 //========================================================================================
 //          PUBLIC CONSTANTS
@@ -129,6 +154,42 @@ end;// function TdlgHURegister1.DataComplete
 //========================================================================================
 //          PROPERTY ROUTINES
 //========================================================================================
+function TdlgHURegister1.GetFirstName: string;
+begin
+   Result := fFirstName;
+end;// function TfrmAppSetup.GetFirstName
+
+//----------------------------------------------------------------------------------------
+procedure TdlgHURegister1.SetFirstName(FName: string);
+begin
+    fFirstName := FName;
+end;// procedure TfrmAppSetup.SetFirstName
+
+//========================================================================================
+function TdlgHURegister1.GetLastName: string;
+begin
+   Result := fLastName;
+end;// function TfrmAppSetup.GetLastName
+
+//----------------------------------------------------------------------------------------
+procedure TdlgHURegister1.SetLastName(LName: string);
+begin
+    fLastName := LName;
+end;// procedure TfrmAppSetup.SetLastName
+
+//========================================================================================
+function TdlgHURegister1.GetCallSign: string;
+begin
+   Result := fCallSign;
+end;// function TfrmAppSetup.GetCallSign
+
+//----------------------------------------------------------------------------------------
+procedure TdlgHURegister1.SetCallSign(Call: string);
+begin
+    fCallSign := Call;
+end;// procedure TfrmAppSetup.SetCallSign
+
+//========================================================================================
 function TdlgHURegister1.GetRegistrationKey: string;
 begin
    Result := fRegistrationKey;
@@ -149,7 +210,10 @@ end;// procedure TfrmAppSetup.SetRegistrationKey
 //========================================================================================
 procedure TdlgHURegister1.bbtOKClick(Sender: TObject);
 begin
-
+  pFirstName := edtFirstName.Text;
+  pLastName := edtLastName.Text;
+  pCallSign := edtCallSign.Text;
+  pRegistrationKey := edtRegistrationKey.Text;
 end;// procedure TdlgHURegister1.bbtOKClick
 
 //========================================================================================
@@ -161,7 +225,7 @@ end;// procedure TdlgHURegister1.bbtHelpClick
 //========================================================================================
 procedure TdlgHURegister1.bbtCancelClick(Sender: TObject);
 begin
-  HUConfirmMsgYN ('ConfirmType', 'ConfirmMsg');
+  HUConfirmMsgYN (CmsgConfirmCancelType, CmsgConfirmCancelText);
 end;// procedure TdlgHURegister1.CancelClick
 
 //========================================================================================
@@ -211,7 +275,7 @@ begin
      //if bbtCancel.Focused then
        //Exit;
      edtFirstName.Color := clMandatoryField;
-     showmessage('Mandatory Field');
+     HUInformationMsgOK(ImsgMandatoryFieldType, ImsgMandatoryFNameText);
     //end;// if not DataComplete
 
 end;// procedure TdlgHURegister1.edtFirstNameExit
@@ -225,7 +289,7 @@ begin
      if bbtCancel.Focused then
        Exit;
      edtLastName.Color := clMandatoryField;
-     showmessage('Mandatory Field');
+     HUInformationMsgOK(ImsgMandatoryFieldType, ImsgMandatoryLNameText);
     end;// if not DataComplete
 
 end;// procedure TdlgHURegister1.edtLastNameExit
@@ -239,7 +303,7 @@ begin
      if bbtCancel.Focused then
        Exit;
      edtCallSign.Color := clMandatoryField;
-     showmessage('Mandatory Field');
+     HUInformationMsgOK(ImsgMandatoryFieldType, ImsgMandatoryCallSignText);
     end;// if not DataComplete
 
 end;// procedure TdlgHURegister1.edtCallSignExit
@@ -253,14 +317,14 @@ end;// procedure TdlgHURegister1.edtCallSignExit
 //========================================================================================
 procedure TdlgHURegister1.FormCreate(Sender: TObject);
 begin
-  //fRegistrationKey := '';
+  position := poScreenCenter;
 end;// procedure TdlgHURegister1.FormCreate
 
 //========================================================================================
 procedure TdlgHURegister1.FormShow(Sender: TObject);
 begin
   fRegistrationKey := '';
-  edtRegKey.Text := fRegistrationKey;
+  edtRegistrationKey.Text := fRegistrationKey;
   edtFirstName.SetFocus;
   bbtOK.Enabled := False;
 end;// procedure TdlgHURegister1.FormShow

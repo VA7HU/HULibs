@@ -110,7 +110,7 @@ object dlgHURegister1: TdlgHURegister1
     Caption = 'Registration Key : '
     ParentColor = False
   end
-  object edtRegKey: TEdit
+  object edtRegistrationKey: TEdit
     Left = 320
     Height = 23
     Top = 70

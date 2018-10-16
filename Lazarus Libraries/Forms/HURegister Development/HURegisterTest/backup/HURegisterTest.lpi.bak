@@ -47,7 +47,9 @@
       <Unit3>
         <Filename Value="..\HURegister1\huregister1.pas"/>
         <IsPartOfProject Value="True"/>
+        <ComponentName Value="dlgHURegister1"/>
         <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
         <UnitName Value="HURegister1"/>
       </Unit3>
       <Unit4>
