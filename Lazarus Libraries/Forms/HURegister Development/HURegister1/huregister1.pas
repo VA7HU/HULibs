@@ -10,7 +10,8 @@ unit HURegister1;
 //
 // Called By :
 //
-// Calls : HUMessageBoxes : HUConfirmMsgYN
+// Calls : HUConstants
+//         HUMessageBoxes : HUConfirmMsgYN
 //                          HUInformationMsgOK
 //         HUValidations : ValidNameCharacter
 //
@@ -25,7 +26,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Buttons,
   StdCtrls,
-  HUMessageBoxes, HUValidations;
+  HUConstants, HUMessageBoxes, HUValidations;
 
 type
 
@@ -57,8 +58,11 @@ type
     procedure edtLastNameKeyPress(Sender: TObject; var Key: char);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    function DataComplete : boolean;
-    function GenerateKey (SeedVal : string) : string;
+    function GenerateKey : string;
+    function ValidateFirstName : Boolean;
+    function ValidateLastName : Boolean;
+    function ValidateCallSign : Boolean;
+    procedure ClearKey;
   private
     fFirstName : string;
     fLastName : string;
@@ -95,15 +99,56 @@ implementation
 //========================================================================================
 const
 
+  // Title
+  cstrCaption = 'Registration Data';
+
+  // Colors
   clMandatoryField = $00CACAFF;
 
+  cintMinFirstNameLen = 2;
+  cintMaxFirstNameLen = 20;
+  cintMinLastNameLen = 2;
+  cintMaxLastNameLen = 20;
+  cintMinCallSignLen = 3;
+  cintMaxCallSignLen = 15;
+
+var
+  blnValidFirstName :Boolean;
+  blnValidLastName :Boolean;
+  blnValidCallsign :Boolean;
+
+const //Messages
+
+  EmsgInvalidDataEntryType = '';
+  EmsgInvalidDataEntrytext = 'Invalid Data Entry';
+
+  ImsgMandatoryFieldType = 'Mandatory Field';
+  ImsgMandatoryFirstNameType = '';
+  ImsgMandatoryFirstNameText = 'Your First Name is a Mandatory Entry';
+  ImsgMandatoryLastNameType = '';
+  ImsgMandatoryLastNameText = 'Your Last Name is a Mandatory Entry';
+  ImsgMandatoryCallSignType = '';
+  ImsgMandatoryCallSignText = 'Your CallSign is a Mandatory Entry';
+
+  ImsgSaveRegKeyType = '';
+  ImsgSaveRegKeyText = 'Ensure that you save your Registration Key';
+
+  CmsgConfirmDlgCancelType = '';
+  CmsgConfirmDlgCancelText = 'If you do not register you will not receive' +
+                         K_CR +
+                         'Notices of Bug fixes or Progam enhancements.' +
+                         K_CR + K_CR +
+                         'Confirm you wish to cancel yout Registration ?';
+
+  {clMandatoryField = $00CACAFF;
+
   CmsgConfirmCancelType = 'Confirm Cancel';
-  CmsgConfirmCancelText = 'Confirm you wish to cancel thid registration ?';
+  CmsgConfirmCancelText = 'Confirm you wish to cancel this registration ?';
 
   ImsgMandatoryFieldType = 'Mandatory Field';
   ImsgMandatoryFNameText = 'Your First Name is a Mandatory field';
   ImsgMandatoryLNameText = 'Your Last Name is a Mandatory field';
-  ImsgMandatoryCallSignText = 'Your CallSign is a Mandatory field';
+  ImsgMandatoryCallSignText = 'Your CallSign is a Mandatory field'; }
 
 //========================================================================================
 //          PUBLIC CONSTANTS
@@ -120,32 +165,134 @@ const
 //========================================================================================
 //          PRIVATE ROUTINES
 //========================================================================================
-function TdlgHURegister1.GenerateKey (SeedVal : string) : string;
+function TdlgHURegister1.ValidateFirstName : Boolean;
 begin
+
+   if Length(edtFirstName.Text) < cintMinFirstNameLen then
+   begin
+     edtFirstName.Color := clMandatoryField;
+     HUErrorMsgOK(EmsgInvalidDataEntryType, ImsgMandatoryFirstNameText);
+     ValidateFirstName := False;
+     blnValidFirstName := False;
+   end
+   else
+   begin
+     edtLastName.Color := clDefault;
+     ValidateFirstName := True;
+     blnValidFirstName := True;
+   end;
+
+end;// function ValidFirstName
+
+//----------------------------------------------------------------------------------------
+function TdlgHURegister1.ValidateLastName : Boolean;
+begin
+
+   if Length(edtLastName.Text) < cintMinLastNameLen then
+   begin
+     edtLastName.Color := clMandatoryField;
+     HUErrorMsgOK(EmsgInvalidDataEntryType, ImsgMandatoryLastNameText);
+     ValidateLastName := False;
+     blnValidLastName := False;
+   end
+   else
+   begin
+     edtLastName.Color := clDefault;
+     ValidateLastName := True;
+     blnValidLastName := True;
+   end;
+
+end;// function ValidLastName
+
+//----------------------------------------------------------------------------------------
+function TdlgHURegister1.ValidateCallSign : Boolean;
+begin
+
+   if Length(edtCallSign.Text) < cintMinCallSignLen then
+   begin
+     edtCallSign.Color := clMandatoryField;
+     HUErrorMsgOK(EmsgInvalidDataEntryType, ImsgMandatoryCallSignText);
+     ValidateCallSign := False;
+     blnValidCallsign := False;
+   end
+   else
+   begin
+     edtLastName.Color := clDefault;
+     ValidateCallSign := True;
+     blnValidCallSign := True;
+   end;
+
+end;// function ValidCallSign
+
+//========================================================================================
+function TdlgHURegister1.GenerateKey : string;
+
+const
+  cintKeyLength = 10;
+  cintTypes = 3;
+  cintDigit = 1;
+  cintucAlpha = 2;
+  cintlcAlpha = 3;
+  cintDigits = 10;
+  cintAlphas = 25;
+
+var
+  vintTemp : Integer;
+  vintType : Integer;
+  vintChar : integer;
+  vstrKeyString : String;
+
+begin
+
+   Randomize;
+   vstrKeyString := '';
+
+   // Create the 10 character string
+   for vintTemp := 1 to cintKeyLength do
+   begin
+
+     // First we get the type of char (digit, a-z, A-Z)
+     vintType := (Random(cintTypes) + 1);
+
+     // Now we get the character itself
+     case vintType of
+       1  : begin
+              vstrKeyString := vstrKeyString + CHR(Random(10) + ORD(K_0));
+            end;
+       2  : begin
+              vstrKeyString := vstrKeyString + CHR(Random(25) + ORD(lK_a));
+            end;
+       3  : begin
+              vstrKeyString := vstrKeyString + CHR(Random(25) + ORD(uK_A));
+            end;
+     end;// case vintType
+
+   end;// for vintTemp := 1 to cintKeyLength
+
+   edtRegistrationKey.Text := vstrKeyString;
+
+   HUInformationMsgOK(ImsgSaveRegKeyText, ImsgSaveRegKeyText);
 
 end;// function TdlgHURegister1.GenerateKey
 
-//========================================================================================
-function TdlgHURegister1.DataComplete : boolean;
-
-const
-  cblnMaxNameLen = 2;
-var
-  Complete : boolean;
+//----------------------------------------------------------------------------------------
+procedure TdlgHURegister1.ClearKey;
 begin
 
-  Complete := False;
+   if blnValidFirstName and blnValidLastName and blnValidCallsign then
+   begin
+     edtRegistrationKey.Color := clYellow;
+     GenerateKey;
+     bbtOK.Enabled := True;
+   end
+   else
+   begin
+     edtRegistrationKey.Color := clDefault;
+     edtRegistrationKey.Text := '';
+     bbtOK.Enabled := False;
+   end;// if blnValidFirstName and blnValidLastName and blnValidCallsign
 
-  if not Length(edtFirstName.Text) > cblnMaxNameLen then
-    Complete := False;
-  if not Length(edtLastName.Text) > cblnMaxNameLen then
-    Complete := False;
-  if not Length(edtFirstName.Text) > cblnMaxNameLen then
-    Complete := False;
-
-  DataComplete := Complete;
-
-end;// function TdlgHURegister1.DataComplete
+end;// procedure TdlgHURegister1.ClearKey
 
 //========================================================================================
 //          PUBLIC ROUTINES
@@ -225,7 +372,7 @@ end;// procedure TdlgHURegister1.bbtHelpClick
 //========================================================================================
 procedure TdlgHURegister1.bbtCancelClick(Sender: TObject);
 begin
-  HUConfirmMsgYN (CmsgConfirmCancelType, CmsgConfirmCancelText);
+  HUConfirmMsgYN (CmsgConfirmDlgCancelType, CmsgConfirmDlgCancelText);
 end;// procedure TdlgHURegister1.CancelClick
 
 //========================================================================================
@@ -269,43 +416,22 @@ end;// procedure TdlgHURegister1.edtCallSignEnter
 //========================================================================================
 procedure TdlgHURegister1.edtFirstNameExit(Sender: TObject);
 begin
-
-  if not DataComplete then
-    //begin
-     //if bbtCancel.Focused then
-       //Exit;
-     edtFirstName.Color := clMandatoryField;
-     HUInformationMsgOK(ImsgMandatoryFieldType, ImsgMandatoryFNameText);
-    //end;// if not DataComplete
-
+  ValidateFirstName;
+  ClearKey;
 end;// procedure TdlgHURegister1.edtFirstNameExit
 
 //----------------------------------------------------------------------------------------
 procedure TdlgHURegister1.edtLastNameExit(Sender: TObject);
 begin
-
-  if not DataComplete then
-    begin
-     if bbtCancel.Focused then
-       Exit;
-     edtLastName.Color := clMandatoryField;
-     HUInformationMsgOK(ImsgMandatoryFieldType, ImsgMandatoryLNameText);
-    end;// if not DataComplete
-
+  ValidateLastName;
+  ClearKey;
 end;// procedure TdlgHURegister1.edtLastNameExit
 
 //----------------------------------------------------------------------------------------
 procedure TdlgHURegister1.edtCallSignExit(Sender: TObject);
 begin
-
-  if not DataComplete then
-    begin
-     if bbtCancel.Focused then
-       Exit;
-     edtCallSign.Color := clMandatoryField;
-     HUInformationMsgOK(ImsgMandatoryFieldType, ImsgMandatoryCallSignText);
-    end;// if not DataComplete
-
+  ValidateCallsign;
+  ClearKey;
 end;// procedure TdlgHURegister1.edtCallSignExit
 
 //========================================================================================
@@ -317,16 +443,30 @@ end;// procedure TdlgHURegister1.edtCallSignExit
 //========================================================================================
 procedure TdlgHURegister1.FormCreate(Sender: TObject);
 begin
-  position := poScreenCenter;
+
+    Caption := cstrCaption;
+    Position := poScreenCenter;
+
+    edtFirstName.MaxLength := cintMaxFirstNameLen;
+    edtLastName.MaxLength := cintMaxLastNameLen;
+    edtCallSign.MaxLength := cintMaxCallSignLen;
+
 end;// procedure TdlgHURegister1.FormCreate
 
 //========================================================================================
 procedure TdlgHURegister1.FormShow(Sender: TObject);
 begin
-  fRegistrationKey := '';
-  edtRegistrationKey.Text := fRegistrationKey;
-  edtFirstName.SetFocus;
-  bbtOK.Enabled := False;
+
+     edtFirstName.Text := pFirstName;
+     edtLastName.Text := pLastName;
+     edtCallSign.Text := pCallSign;
+     edtRegistrationKey.Text := pRegistrationKey;
+
+     edtFirstName.SetFocus;
+     bbtOK.Enabled := False;
+   //  ClearKey;
+     edtRegistrationKey.ReadOnly := True;
+
 end;// procedure TdlgHURegister1.FormShow
 
 //========================================================================================
