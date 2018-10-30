@@ -86,7 +86,7 @@ implementation
 {$R *.lfm}
 
 const
-  cstrUserDirectoryName = 'KenMem';
+  cstrUserDirectoryName = 'KenMem' + emNoFile + CR;
   cstrRadiosDirectoryName = 'Radios';
   cstrBackupDirectoryName = 'Backup';
 

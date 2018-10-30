@@ -22,8 +22,7 @@ interface
 
 uses
   Buttons, Classes, ComCtrls, Controls, Dialogs, FileUtil, Forms, Graphics, INIFiles,
-  StdCtrls, SysUtils,
-  HUConstants;
+  StdCtrls, SysUtils;
 
 type
 

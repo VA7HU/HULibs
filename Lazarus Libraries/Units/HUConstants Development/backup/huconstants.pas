@@ -28,7 +28,7 @@ const
   // ASCII CONSTANTS
 
   // MESSAGE CONSTANTS
-  emNoFile = ' - FILE DOES NOT EXIST';
+  emNoFile = ' - FILE DOES NOT EXIST' + K_CR;
 
   // KEY CONSTANTS
   K_BS   = #08;
