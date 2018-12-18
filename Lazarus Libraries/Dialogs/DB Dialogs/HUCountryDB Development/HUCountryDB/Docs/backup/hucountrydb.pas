@@ -102,7 +102,7 @@ end;// function TfrmSettings.GetApplicationDirectory
 procedure TdlgHUCountryDB.SetDebug(Dbg: boolean);
 begin
 
-    fDebug := Dbg;
+    pDebug := Dbg;
 
     if pDebug then
     begin
