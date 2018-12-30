@@ -14,7 +14,7 @@ unit HUValidations;
 //
 // Ver. : 1.0.0
 //
-// Date : 7 Oct 2018
+// Date : 29 Dect 2018
 //
 //========================================================================================
 
@@ -27,6 +27,7 @@ uses
 //function ValidAlphaCharacter( Key: char) : char;
 function ValidNameCharacter( Key: char) : char;
 function ValidCallsignCharacter( Key: char) : char;
+function ValidDirectoryCharacter( Key: char) : char;
 
 implementation
 
@@ -98,7 +99,7 @@ begin
                     Exit; // [a..z]
                   end;
     else
-      Result := K_NUKKl;
+      Result := K_NULL;
     end;// case Key of
 
 end;// function ValidCallsignCharacter(var Key: char);
@@ -168,7 +169,7 @@ begin
 end;// function ValidFilenameCharacter }
 
 //========================================================================================
-{function ValidDirectoryCharacter (Key: char) : char;
+function ValidDirectoryCharacter (Key: char) : char;
 begin
 
     // Returns only Valid Directory Characters. Non-valid characters are converted
@@ -182,17 +183,17 @@ begin
     // <_>
     Result := Key;
     case Key of
-      keyBS : Exit; // <BS>
-      keySpace : Exit; // <SP>
-      key0..key9 : Exit; // [0..9]
-      keyA..keyZ : Exit; // [A..Z]
-      keyUScore : Exit; // <_>
-      key_a..key_z : Exit; // [a..z]
+      K_BS : Exit; // <BS>
+      K_SP : Exit; // <SP>
+      K_0..K_9 : Exit; // [0..9]
+      uK_A..uK_Z : Exit; // [A..Z]
+      k_USCORE : Exit; // <_>
+      lK_a..lK_z : Exit; // [a..z]
     else
-      Result := keyNull;
+      Result := K_NULL;
     end;// case Key of
 
-end;// function ValidDirectoryCharacter}
+end;// function ValidDirectoryCharacter
 
 //========================================================================================
 function ValidNameCharacter (Key: char) : char;
@@ -212,7 +213,7 @@ begin
       K_SP : Exit; // <SP>
       uK_A..uK_Z : Exit; // [A..Z]
       lK_a..lK_z : Exit; // [a..z]
-      K_Dash : Exit; // <_>
+      K_UScore : Exit; // <_>
     else
       Result := K_NULL;
     end;// case Key of

@@ -38,6 +38,7 @@ const
   K_LF   = #10;
   K_NULL = #00;
   K_SP   = #32;
+  K_USCORE = #95;
 
   K_0  = #48;
   K_1  = #49;
