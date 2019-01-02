@@ -14,7 +14,7 @@ unit HUConstants;
 //
 // Ver. : 1.0.0
 //
-// Date : 30 Sep 2018
+// Date : 30 Dec 2018
 //
 //========================================================================================
 
@@ -27,8 +27,12 @@ const
 
   // ASCII CONSTANTS
 
-  // MESSAGE CONSTANTS
+  // MESSAGE TEXT CONSTANTS
   emNoFile = ' - FILE DOES NOT EXIST';
+
+  // MESSAGE BACKGROUND COLOURS
+  bclrError = $009797FF;
+  bclrOK = $00F7F7F7;
 
   // KEY CONSTANTS
   K_BS   = #08;

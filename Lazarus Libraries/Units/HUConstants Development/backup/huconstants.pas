@@ -14,7 +14,7 @@ unit HUConstants;
 //
 // Ver. : 1.0.0
 //
-// Date : 30 Sep 2018
+// Date : 30 Dec 2018
 //
 //========================================================================================
 
@@ -27,8 +27,13 @@ const
 
   // ASCII CONSTANTS
 
-  // MESSAGE CONSTANTS
+  // MESSAGE TEXT CONSTANTS
   emNoFile = ' - FILE DOES NOT EXIST';
+
+  // MESSAGE BACKGROUND COLOURS
+  bclrError = $009797FF;
+  bclrWarning = $0080FFFF;
+  bclrOK = $00F7F7F7;
 
   // KEY CONSTANTS
   K_BS   = #08;
@@ -38,6 +43,7 @@ const
   K_LF   = #10;
   K_NULL = #00;
   K_SP   = #32;
+  K_USCORE = #95;
 
   K_0  = #48;
   K_1  = #49;
@@ -76,8 +82,6 @@ const
   uK_X = #88;
   uK_Y = #89;
   uK_Z = #90;
-
-  K_UScore = #95;
 
   lK_a = #97;
   lK_b = #98;
