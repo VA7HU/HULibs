@@ -16,7 +16,7 @@ unit HUDirNameEntry;
 //
 // Ver. : 1.0.0
 //
-// Date : 30 Dec 2018
+// Date : 12 Jan 2019
 //
 //========================================================================================
 
@@ -48,13 +48,17 @@ type
     vstrOriginalDirName : string;
     fBaseDirName : string;
     fDirName : string;
+    fDirPath : string;
     function GetBaseDirName : string;
     procedure SetBaseDirName(Dir : string);
     function GetDirName : string;
     procedure SetDirName(Dir : string);
+    function GetDirPath : string;
+    procedure SetDirPath(Dir : string);
   public
     property pBaseDirName : string read GetBaseDirName write SetBaseDirName;
     property pDirName : string read GetDirName write SetDirName;
+    property pDirPath : string read GetDirPAth write SetDirPAth;
   end;// TdlgHUDirNameEntry
 
 var
@@ -118,6 +122,18 @@ begin
 end;// procedure TdlgHUDirNameEntry.SetDirName
 
 //========================================================================================
+function TdlgHUDirNameEntry.GetDirPath: string;
+begin
+   Result := fDirName;
+end;// function TdlgHUDirNameEntry.GetDirPath
+
+//----------------------------------------------------------------------------------------
+procedure TdlgHUDirNameEntry.SetDirPath(Dir: string);
+begin
+    fDirName := Dir;
+end;// procedure TdlgHUDirNameEntry.SetDirPath
+
+//========================================================================================
 //          MENU ROUTINES
 //========================================================================================
 
@@ -159,15 +175,17 @@ begin
   vstrDirFullPath := pBaseDirName + '\' + K_CR +
                      pDirName;
 
-  edit1.Text :=  vstrDirFullPath;
+  If DirectoryExists(vstrDirFullPath) then
+  begin
 
-  showmessage(vstrDirFullPath);
+  end;
 
-  If Not DirectoryExists(vstrDirFullPath) then
-    If Not CreateDir (vstrDirFullPath) Then
+
+
+{    If Not CreateDir (vstrDirFullPath) Then
       HUErrorMsgOK ('Failed to Create : ', vstrDirFullPath)
     else
-      HUInformationMsgOK ('Created : ', vstrDirFullPath);
+      HUInformationMsgOK ('Created : ', vstrDirFullPath);}
 
 
 
