@@ -58,7 +58,7 @@ type
   public
     property pBaseDirName : string read GetBaseDirName write SetBaseDirName;
     property pDirName : string read GetDirName write SetDirName;
-    property pDirPath : string read GetDirPAth write SetDirPAth;
+    property pDirPath : string read GetDirPath write SetDirPath;
   end;// TdlgHUDirNameEntry
 
 var
@@ -168,26 +168,24 @@ begin
     edtDirName.SetFocus;
     ModalResult := mrNone;
     Exit;
-  end;
+  end;// if edtDirName.Text = ''
 
   // Confirm Dir DOES NOT already exist
   pDirName := edtDirName.Text;
-  vstrDirFullPath := pBaseDirName + '\' + K_CR +
+  pDirPath := pBaseDirName + '\' + K_CR +
                      pDirName;
 
-  If DirectoryExists(vstrDirFullPath) then
+  showmessage(pDirPath);
+
+  If DirectoryExists(pDirPath) then
   begin
+    showmessage('Directory ' + pDirPath + ' Already Exists!');
+    edtDirName.SetFocus;
+    ModalResult := mrNone;
+    Exit;
+  end;// If DirectoryExists(pDirPath
 
-  end;
-
-
-
-{    If Not CreateDir (vstrDirFullPath) Then
-      HUErrorMsgOK ('Failed to Create : ', vstrDirFullPath)
-    else
-      HUInformationMsgOK ('Created : ', vstrDirFullPath);}
-
-
+  showmessage(pDirPath);
 
 
 end;// procedure TdlgHUDirNameEntry.bbtOKClick
