@@ -23,7 +23,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Buttons,
   StdCtrls,
-  HUConstants, HUMessageBoxes, HURegister1;
+  HUConstants, HUMessageBoxes{, HURegister1};
 
 type
 
@@ -129,7 +129,7 @@ end;// procedure TdlgHUNagScreen.bbtNoClick
 //========================================================================================
 procedure TdlgHUNagScreen.bbtYesClick(Sender: TObject);
 begin
-  dlgHURegister1.ShowModal;
+  //dlgHURegister1.ShowModal;
 end;// procedure TdlgHUNagScreen.bbtYesClick
 
 //========================================================================================

@@ -16,6 +16,8 @@ unit HUConstants;
 //
 // Date : 30 Dec 2018
 //
+// ToDo:
+//
 //========================================================================================
 
 interface
@@ -32,7 +34,6 @@ const
 
   // MESSAGE BACKGROUND COLOURS
   bclrError = $009797FF;
-  bclrWarning = $0080FFFF;
   bclrOK = $00F7F7F7;
 
   // KEY CONSTANTS

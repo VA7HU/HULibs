@@ -16,7 +16,7 @@ unit HUDirNameEntry;
 //
 // Ver. : 1.0.0
 //
-// Date : 15 Jan 2019
+// Date : 20 Jan 2019
 //
 //========================================================================================
 
@@ -40,23 +40,18 @@ type
     procedure bbtCancelClick(Sender: TObject);
     procedure bbtOKClick(Sender: TObject);
     procedure edtDirNameKeyPress(Sender: TObject; var Key: char);
-    procedure edtDirNameKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState
-      );
+    procedure edtDirNameKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState );
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     vstrOriginalDirName : string;
-//    fBaseDirName : string;
     fDirName : string;
     fDirPath : string;
-//    function GetBaseDirName : string;
-    procedure SetBaseDirName(Dir : string);
     function GetDirName : string;
     procedure SetDirName(Dir : string);
     function GetDirPath : string;
-    procedure SetDirPath(Dir : string);
+    procedure SetDirPath(DirPath : string);
   public
-//   property pBaseDirName : string read GetBaseDirName write SetBaseDirName;
     property pDirName : string read GetDirName write SetDirName;
     property pDirPath : string read GetDirPath write SetDirPath;
   end;// TdlgHUDirNameEntry
@@ -98,22 +93,10 @@ const
 //========================================================================================
 //          PROPERTY ROUTINES
 //========================================================================================
-{function TdlgHUDirNameEntry.GetBaseDirName: string;
-begin
-   Result := fBaseDirName;
-end;// function TdlgHUDirNameEntry.GetBaseDirNamey
-
-//----------------------------------------------------------------------------------------
-procedure TdlgHUDirNameEntry.SetBaseDirName(Dir: string);
-begin
-    fBaseDirName := Dir;
-end;// procedure TdlgHUDirNameEntry.SetBaseDirName }
-
-//========================================================================================
 function TdlgHUDirNameEntry.GetDirName: string;
 begin
    Result := fDirName;
-end;// function TdlgHUDirNameEntry.GetDirNamey
+end;// function TdlgHUDirNameEntry.GetDirName
 
 //----------------------------------------------------------------------------------------
 procedure TdlgHUDirNameEntry.SetDirName(Dir: string);
@@ -124,13 +107,13 @@ end;// procedure TdlgHUDirNameEntry.SetDirName
 //========================================================================================
 function TdlgHUDirNameEntry.GetDirPath: string;
 begin
-   Result := fDirName;
+   Result := fDirPath;
 end;// function TdlgHUDirNameEntry.GetDirPath
 
 //----------------------------------------------------------------------------------------
-procedure TdlgHUDirNameEntry.SetDirPath(Dir: string);
+procedure TdlgHUDirNameEntry.SetDirPath(DirPath: string);
 begin
-    fDirName := Dir;
+    fDirPath := DirPath;
 end;// procedure TdlgHUDirNameEntry.SetDirPath
 
 //========================================================================================
@@ -152,8 +135,9 @@ begin
     ModalResult := mrNone;
     Exit;
   end;
-//  pDirName := vstrOriginalDirName;
+
   ModalResult := mrCancel;
+
 end;// procedure TdlgHUDirNameEntry.bbtCancelClick
 
 //----------------------------------------------------------------------------------------
@@ -173,7 +157,7 @@ begin
   pDirName := edtDirName.Text;
 
   // Confirm Dir DOES NOT already exist
-  pDirPath := frmSettings.pLogbooksDirectory + '\' + pDirName;
+  pDirPath := pDirPath + '\' + pDirName;
 
   If DirectoryExists(pDirPath) then
   begin
@@ -182,7 +166,10 @@ begin
     edtDirName.SetFocus;
     ModalResult := mrNone;
     Exit;
-  end;// If DirectoryExists(pDirPath
+  end;// If DirectoryExists(pDirPath)
+
+  showmessage(pDirName);
+  showmessage(pDirPath);
 
 end;// procedure TdlgHUDirNameEntry.bbtOKClick
 
@@ -218,12 +205,13 @@ end;// procedure TdlgHUDirNameEntry.FormCreate
 procedure TdlgHUDirNameEntry.FormShow(Sender: TObject);
 begin
 
-  vstrOriginalDirName := pDirName;
-  edtDirName.Text := pDirName;
+  edtDirName.Text := PDirName;
+
   if Length(edtDirName.Text) < cintMinDirNameCharacters then
     edtDirName.Color := bclrError
   else
     edtDirName.Color := bclrOk;
+
   edtDirName.SetFocus;
 
 end;// procedure TdlgHUDirNameEntry.FormShow
