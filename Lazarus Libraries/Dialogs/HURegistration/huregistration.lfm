@@ -1,0 +1,130 @@
+object dlgHURegistration: TdlgHURegistration
+  Left = 373
+  Height = 385
+  Top = 135
+  Width = 404
+  BorderStyle = bsDialog
+  Caption = 'dlgHURegistration'
+  ClientHeight = 385
+  ClientWidth = 404
+  OnCreate = FormCreate
+  OnShow = FormShow
+  LCLVersion = '1.8.4.0'
+  object bbtOK: TBitBtn
+    Left = 192
+    Height = 30
+    Top = 296
+    Width = 75
+    Default = True
+    DefaultCaption = True
+    Kind = bkOK
+    ModalResult = 1
+    TabOrder = 0
+  end
+  object bbtCancel: TBitBtn
+    Left = 280
+    Height = 30
+    Top = 296
+    Width = 75
+    Cancel = True
+    Caption = '&Cancel'
+    Kind = bkCancel
+    ModalResult = 2
+    TabOrder = 1
+  end
+  object edtFirstNamer: TEdit
+    Left = 172
+    Height = 23
+    Top = 103
+    Width = 150
+    Alignment = taCenter
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    Left = 53
+    Height = 15
+    Top = 103
+    Width = 66
+    Caption = 'First Name : '
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 53
+    Height = 15
+    Top = 136
+    Width = 62
+    Caption = 'Last Name :'
+    ParentColor = False
+  end
+  object edtLastName: TEdit
+    Left = 172
+    Height = 23
+    Top = 136
+    Width = 148
+    Alignment = taCenter
+    TabOrder = 3
+  end
+  object Label3: TLabel
+    Left = 57
+    Height = 15
+    Top = 264
+    Width = 43
+    Alignment = taCenter
+    Caption = 'User ID :'
+    ParentColor = False
+  end
+  object edtUserID: TEdit
+    Left = 172
+    Height = 23
+    Top = 256
+    Width = 150
+    ReadOnly = True
+    TabOrder = 4
+  end
+  object chkRegister: TCheckBox
+    Left = 96
+    Height = 19
+    Top = 304
+    Width = 73
+    Caption = 'Register  ?'
+    TabOrder = 5
+  end
+  object Label4: TLabel
+    Left = 53
+    Height = 15
+    Top = 168
+    Width = 51
+    Caption = 'Callsign : '
+    ParentColor = False
+  end
+  object edtCallsign: TEdit
+    Left = 172
+    Height = 23
+    Top = 168
+    Width = 148
+    TabOrder = 6
+  end
+  object Label5: TLabel
+    Left = 72
+    Height = 15
+    Top = 201
+    Width = 38
+    Caption = 'Email : '
+    ParentColor = False
+  end
+  object edtEmail: TEdit
+    Left = 172
+    Height = 23
+    Top = 201
+    Width = 148
+    Alignment = taCenter
+    TabOrder = 7
+  end
+  object memInstructions: TMemo
+    Left = 80
+    Height = 90
+    Top = 8
+    Width = 214
+    TabOrder = 8
+  end
+end
