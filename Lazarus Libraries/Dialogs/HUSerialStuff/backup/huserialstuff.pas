@@ -22,7 +22,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Buttons, StdCtrls,
-  ExtCtrls, SdpoSerial
+  ExtCtrls, LazSerial, SdpoSerial
   // Application units
   // HULib units
   ;
