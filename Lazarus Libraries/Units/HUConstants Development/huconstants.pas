@@ -14,7 +14,7 @@ unit HUConstants;
 //
 // Ver. : 1.0.0
 //
-// Date : 30 Dec 2018
+// Date : 20 Feb 2019
 //
 // *ToDo:
 //
@@ -110,6 +110,9 @@ const
   lK_x = #120;
   lK_y = #121;
   lK_z = #122;
+
+  // STRING CONSTANTS
+  strNULL = '';
 
 
 implementation

@@ -1,51 +1,54 @@
 object dlgHUSerialStuff: TdlgHUSerialStuff
   Left = 436
-  Height = 422
+  Height = 430
   Top = 163
-  Width = 235
+  Width = 278
+  BorderIcons = []
+  BorderStyle = bsDialog
   Caption = 'dlgHUSerialStuff'
-  ClientHeight = 422
-  ClientWidth = 235
+  ClientHeight = 430
+  ClientWidth = 278
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
   LCLVersion = '2.0.0.4'
-  object BitBtn1: TBitBtn
-    Left = 132
+  object bbtCancel: TBitBtn
+    Left = 192
     Height = 30
-    Top = 368
+    Top = 392
     Width = 75
     Cancel = True
     DefaultCaption = True
     Kind = bkCancel
     ModalResult = 2
-    OnClick = BitBtn1Click
+    OnClick = bbtCancelClick
     TabOrder = 0
   end
-  object BitBtn2: TBitBtn
-    Left = 27
+  object bbtOK: TBitBtn
+    Left = 16
     Height = 30
-    Top = 368
+    Top = 392
     Width = 75
     Default = True
     DefaultCaption = True
     Kind = bkOK
     ModalResult = 1
-    OnClick = BitBtn2Click
+    OnClick = bbtOKClick
     TabOrder = 1
   end
   object cbxComPort: TComboBox
-    Left = 104
+    Left = 129
     Height = 23
     Top = 88
     Width = 100
     ItemHeight = 15
+    OnChange = cbxComPortChange
     Style = csDropDownList
     TabOrder = 2
   end
   object Label1: TLabel
-    Left = 27
+    Left = 52
     Height = 15
     Top = 92
     Width = 59
@@ -53,7 +56,7 @@ object dlgHUSerialStuff: TdlgHUSerialStuff
     ParentColor = False
   end
   object Label2: TLabel
-    Left = 24
+    Left = 49
     Height = 15
     Top = 131
     Width = 65
@@ -61,7 +64,7 @@ object dlgHUSerialStuff: TdlgHUSerialStuff
     ParentColor = False
   end
   object cbxBaudRate: TComboBox
-    Left = 103
+    Left = 128
     Height = 23
     Top = 127
     Width = 100
@@ -70,7 +73,7 @@ object dlgHUSerialStuff: TdlgHUSerialStuff
     TabOrder = 3
   end
   object Label3: TLabel
-    Left = 37
+    Left = 52
     Height = 15
     Top = 171
     Width = 39
@@ -78,7 +81,7 @@ object dlgHUSerialStuff: TdlgHUSerialStuff
     ParentColor = False
   end
   object cbxParity: TComboBox
-    Left = 104
+    Left = 129
     Height = 23
     Top = 167
     Width = 100
@@ -87,7 +90,7 @@ object dlgHUSerialStuff: TdlgHUSerialStuff
     TabOrder = 4
   end
   object Label4: TLabel
-    Left = 29
+    Left = 52
     Height = 15
     Top = 211
     Width = 55
@@ -95,7 +98,7 @@ object dlgHUSerialStuff: TdlgHUSerialStuff
     ParentColor = False
   end
   object cbxDataBits: TComboBox
-    Left = 104
+    Left = 129
     Height = 23
     Top = 207
     Width = 100
@@ -104,7 +107,7 @@ object dlgHUSerialStuff: TdlgHUSerialStuff
     TabOrder = 5
   end
   object Label5: TLabel
-    Left = 29
+    Left = 52
     Height = 15
     Top = 251
     Width = 55
@@ -112,7 +115,7 @@ object dlgHUSerialStuff: TdlgHUSerialStuff
     ParentColor = False
   end
   object cbxStopBits: TComboBox
-    Left = 104
+    Left = 129
     Height = 23
     Top = 247
     Width = 100
@@ -121,14 +124,14 @@ object dlgHUSerialStuff: TdlgHUSerialStuff
     TabOrder = 6
   end
   object Memo1: TMemo
-    Left = 40
+    Left = 64
     Height = 66
     Top = 8
     Width = 150
     Alignment = taCenter
     TabOrder = 7
   end
-  object rbtHardwareHandshaking: TRadioButton
+  object rbtHardwareFlowControl: TRadioButton
     Left = 31
     Height = 19
     Top = 312
@@ -137,28 +140,48 @@ object dlgHUSerialStuff: TdlgHUSerialStuff
     TabOrder = 8
   end
   object Label6: TLabel
-    Left = 82
+    Left = 105
     Height = 15
     Top = 288
-    Width = 70
-    Caption = 'Handshaking'
+    Width = 68
+    Caption = 'Flow Control'
     ParentColor = False
   end
-  object rbtSoftwareHandshaking: TRadioButton
-    Left = 137
+  object rbtSoftwareFlowControl: TRadioButton
+    Left = 181
     Height = 19
     Top = 312
     Width = 66
     Caption = 'Software'
     TabOrder = 9
   end
-  object rbtNoHandshaking: TRadioButton
-    Left = 93
+  object rbtNoFlowControl: TRadioButton
+    Left = 119
     Height = 19
-    Top = 336
+    Top = 312
     Width = 49
     Caption = 'None'
     TabOrder = 10
+  end
+  object bbtHelp: TBitBtn
+    Left = 102
+    Height = 30
+    Top = 352
+    Width = 75
+    DefaultCaption = True
+    Kind = bkHelp
+    TabOrder = 11
+  end
+  object bbtRestore: TBitBtn
+    Left = 103
+    Height = 30
+    Top = 392
+    Width = 75
+    Caption = '&Restore'
+    Kind = bkRetry
+    ModalResult = 4
+    OnClick = bbtRestoreClick
+    TabOrder = 12
   end
   object SdpoSerial1: TSdpoSerial
     Active = False
