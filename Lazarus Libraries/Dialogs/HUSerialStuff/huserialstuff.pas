@@ -217,7 +217,16 @@ begin
   end;// for vintPort := cintMinComPorts to cintMaxComPorts
 
   if cbxComPort.items.Count < cintMinComPorts then
+  begin
     HUErrorMsgOK ('COM Port', 'No COM Ports Available');
+    pSelectedCOMPort := '';
+    cbxCOMPort.Text := pSelectedCOMPort;
+  end
+  else
+  begin
+    pSelectedCOMPort := cbxCOMPort.Items[0];
+    cbxCOMPort.Text := pSelectedCOMPort;
+  end;// if cbxComPort.items.Count < cintMinComPorts
 
 end;// procedure TdlgHUSerialStuff.LoadAvailableComPortNames
 
@@ -368,8 +377,23 @@ end;// procedure TdlgHUSerialStuff.bbtCancelClick
 procedure TdlgHUSerialStuff.bbtOKClick(Sender: TObject);
 begin
 
-  // Savenew paramteres and exit
-   SaveSelectedParameters;
+  //IF no COMPort selected display message with cancel option
+  if cbxCOMPort.Items.Count < 1 then
+  begin
+
+    if HUConfirmMsgYN('', 'Confirm') = mrNo then
+    begin
+      showmessage('No');
+      ModalResult := mrNone;
+      cbxCOMPort.SetFocus;
+      Exit
+    end;// if HUConfirmMsgYN('', 'Confirm') = mrNo then
+
+  end;// if cbxCOMPort.Items.Count < cintMinComPorts
+
+{  pSelectedCOMPort :=  cbxCOMPort.Items[0];
+  cbxCOMPort.Text := pSelectedCOMPort;
+  SaveSelectedParameters;  }
 
 end;// procedure TdlgHUSerialStuff.bbtOKClick
 

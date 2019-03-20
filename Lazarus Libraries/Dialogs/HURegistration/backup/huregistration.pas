@@ -194,7 +194,7 @@ begin
   lblKeyID.Caption := cstrlblRegistrationKey;
   bbtRegID.Caption := 'Registration';;
   memInstructions.lines[0] := cstrmemRegKeyInstructions1;
-//  pHideStep4 := True;
+  pHideStep4 := False;
   dlgHURegistration.HideStep4Entry;
   dlgHURegistration.ShowModal;
 end;// procedure TdlgHURegistration.GetRegistrationKey
@@ -355,7 +355,7 @@ begin
 //========================================================================================
 procedure TdlgHURegistration.FormCreate(Sender: TObject);
 begin
-  pHideStep4 := False;
+
 end;// procedure TdlgHURegistration.FormCreate
 
 //----------------------------------------------------------------------------------------

@@ -14,7 +14,7 @@ unit HUValidations;
 //
 // Ver. : 1.0.0
 //
-// Date : 29 Dect 2018
+// Date : 15 Mar 2019
 //
 //========================================================================================
 
@@ -25,9 +25,10 @@ uses
 
 
 //function ValidAlphaCharacter( Key: char) : char;
-function ValidNameCharacter( Key: char) : char;
 function ValidCallsignCharacter( Key: char) : char;
 function ValidDirectoryCharacter( Key: char) : char;
+function ValidEMailCharacter( Key: char) : char;
+function ValidNameCharacter( Key: char) : char;
 
 implementation
 
@@ -193,6 +194,33 @@ begin
     end;// case Key of
 
 end;// function ValidDirectoryCharacter
+
+//========================================================================================
+function ValidEMailCharacter (Key: char) : char;
+begin
+
+    // Returns only Valid Email Characters. Non-valid characters are converted
+    // into Null (#0) characters.
+    //Valid Alpha Characters are:
+    // <BS>
+    // <SP>
+    // [A..Z]
+    // [a..z]
+    // [0..9]
+    // <_>
+    Result := Key;
+    case Key of
+      K_BS : Exit; // <BS>
+      K_SP : Exit; // <SP>
+      K_0..K_9 : Exit; // [0..9]
+      uK_A..uK_Z : Exit; // [A..Z]
+      k_USCORE : Exit; // <_>
+      lK_a..lK_z : Exit; // [a..z]
+    else
+      Result := K_NULL;
+    end;// case Key of
+
+end;// function ValidEMailCharacter
 
 //========================================================================================
 function ValidNameCharacter (Key: char) : char;

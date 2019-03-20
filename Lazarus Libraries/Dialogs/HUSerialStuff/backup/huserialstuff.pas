@@ -14,7 +14,7 @@ unit HUSerialStuff;
 //
 // Ver. : 1.0.0
 //
-// Date : 26 Feb 2019
+// Date : 28 Feb 2019
 //
 //========================================================================================
 
@@ -119,7 +119,7 @@ const
 
 //========================================================================================
 //          PUBLIC CONSTANTS
-//=========================================================== : TPro=============================
+//========================================================================================
 
 //========================================================================================
 //          PRIVATE VARIABLES
@@ -216,8 +216,17 @@ begin
 
   end;// for vintPort := cintMinComPorts to cintMaxComPorts
 
-  if cbxComPort.items.Count < cintMinComPorts then
+  if cbxComPort.items.Count >+ cintMinComPorts then
+  begin
     HUErrorMsgOK ('COM Port', 'No COM Ports Available');
+    pSelectedCOMPort := '';
+    cbxCOMPort.Text := pSelectedCOMPort;
+  end
+  else
+  begin
+    pSelectedCOMPort := cbxCOMPort.Items[0];
+    cbxCOMPort.Text := pSelectedCOMPort;
+  end;// if cbxComPort.items.Count < cintMinComPorts
 
 end;// procedure TdlgHUSerialStuff.LoadAvailableComPortNames
 
@@ -228,13 +237,9 @@ begin
     // Save New Parameters
   PSelectedComPort := cbxCOMPort.Text;
   pBaudRate := (TBaudRate(cbxBaudRate.ItemIndex));
-    showmessage(GetEnumName(TypeInfo(TBaudRate), cbxBaudRate.ItemIndex));
   pParity := (TParity(cbxParity.ItemIndex));
-    showmessage(GetEnumName(TypeInfo(TParity), cbxParity.ItemIndex));
   pDataBits := (TDataBits(cbxParity.ItemIndex));
-    showmessage(GetEnumName(TypeInfo(TParity), cbxParity.ItemIndex));
   pStopBits := (TStopBits(cbxStopBits.ItemIndex));
-    showmessage(GetEnumName(TypeInfo(TStopBits), cbxStopBits.ItemIndex));
   ReadFlowControlRadioButtons;
 
 end;// procedure TdlgHUSerialStuff.SaveSelectedParameters
@@ -372,8 +377,23 @@ end;// procedure TdlgHUSerialStuff.bbtCancelClick
 procedure TdlgHUSerialStuff.bbtOKClick(Sender: TObject);
 begin
 
-  // Savenew paramteres and exit
-   SaveSelectedParameters;
+  //IF no COMPort selected display message with cancel option
+  if cbxCOMPort.Items.Count < 1 then
+  begin
+
+    if HUConfirmMsgYN('', 'Confirm') = mrNo then
+    begin
+      showmessage('No');
+      ModalResult := mrNone;
+      cbxCOMPort.SetFocus;
+      Exit
+    end;// if HUConfirmMsgYN('', 'Confirm') = mrNo then
+
+  end;// if cbxCOMPort.Items.Count < cintMinComPorts
+
+{  pSelectedCOMPort :=  cbxCOMPort.Items[0];
+  cbxCOMPort.Text := pSelectedCOMPort;
+  SaveSelectedParameters;  }
 
 end;// procedure TdlgHUSerialStuff.bbtOKClick
 
