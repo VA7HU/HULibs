@@ -199,7 +199,7 @@ end;// function ValidDirectoryCharacter
 function ValidEMailCharacter (Key: char) : char;
 begin
 
-    // Returns only Valid Directory Characters. Non-valid characters are converted
+    // Returns only Valid Email Characters. Non-valid characters are converted
     // into Null (#0) characters.
     //Valid Alpha Characters are:
     // <BS>

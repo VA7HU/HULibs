@@ -14,7 +14,7 @@ unit HUConstants;
 //
 // Ver. : 1.0.0
 //
-// Date : 20 Feb 2019
+// Date : 9 Feb 2019
 //
 // *ToDo:
 //
@@ -37,14 +37,38 @@ const
   bclrOK = $00F7F7F7;
 
   // KEY CONSTANTS
+  K_Ampersand = #38;
+  K_Asterix = #42;
   K_BS   = #08;
-  K_DASH = #45;
-  K_FSLASH = #47;
+  K_Caret = #94;
   K_CR   = #13;
+  K_Colon = #58;
+  K_DASH = #45;
+  K_DollarSign = #36;
+  K_Dot = #46;
+  K_DoubleQuote = #34;
+  K_EqualSign = #61;
+  K_ExclamationMark = #33;
+  K_ForwardSlash = #47;
+  K_HashMark = #35;
+  K_Hyphen = #45;
+  K_LeftBracket = #123;
   K_LF   = #10;
-  K_NULL = #00;
+  K_MinusSign = #45;
+  K_Null = #00;
+  K_Octathorpe = #35;
+  K_PercentSign = #37;
+  K_Period = #46;
+  K_PlusSign = #43;
+  K_QuestionMark = #63;
+  K_RightBracket = #125;
+  K_RightSingleQuote = #96;
+  K_SemiColon = #59;
+  K_SingleQuote = #39;
   K_SP   = #32;
-  K_USCORE = #95;
+  K_Tilde = #126;
+  K_UnderScore = #95;
+  K_VerticalBar = #124;
 
   K_0  = #48;
   K_1  = #49;
@@ -110,9 +134,6 @@ const
   lK_x = #120;
   lK_y = #121;
   lK_z = #122;
-
-  // STRING CONSTANTS
-  strNULL = '';
 
 
 implementation
