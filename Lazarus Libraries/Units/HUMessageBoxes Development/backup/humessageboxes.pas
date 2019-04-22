@@ -15,7 +15,7 @@ unit HUMessageBoxes;
 //
 // Ver. : 1.00
 //
-// Date : 28 Nov 2018
+// Date : 20 Apr 2019
 //
 //========================================================================================
 
@@ -25,15 +25,33 @@ uses
   Classes, Controls, Dialogs, Forms, LCLType, SysUtils,
   HUConstants;
 
-function HUErrorMsgOK (ErrorType, ErrorMsg : String) : Integer;
-function HUErrorMsgYN (ErrorType, ErrorMsg : String) : Integer;
+function HUErrorMsgOK (Caption, Text: String) : Integer;
+function HUErrorMsgYN (Caption, Text: String) : Integer;
 
-function HUInformationMsgOK (InformationType , InformationMsg: String) : Integer;
-function HUInformationMsgYN (InformationType , InformationMsg: String) : Integer;
-Function HUNotImplementedMsgOK (InformationType : String) : Integer;
+function HUInformationMsgOK (Caption, Text: String) : Integer;
+function HUInformationMsgYN (Caption, Text: String) : Integer;
+Function HUNotImplementedMsgOK (Caption, Text: String) : Integer;
 
-function HUConfirmMsgYN (ConfirmType, ConfirmMsg : String) : Integer;
+function HUConfirmMsgYN (Caption, Text: String) : Integer;
 
+const
+
+  // Common Error Message Texts
+  erCreateUserDirsFailed = 'Failure Creating User Directories';
+  erNoDataDirectoriesFound = '       MAJOR ERROR' +
+                             K_CR +
+                             K_CR +
+                             'No Data Directories found.';
+
+  // Common Confirmation Message Texts
+
+  // Common Information Message Texts
+  imApplicationClosing = 'Application closing.';
+  imCreateUserDirs = 'Creating User Directories';
+  imNotImplementedMsg = 'Not Yet Implemented';
+  imNoINIFile = '   The .INI file Does Not Exist.'
+              + K_CR
+              + ' Is this an Initial installation ?';
 
 implementation
 
@@ -41,22 +59,11 @@ implementation
 //          PRIVATE CONSTANTS
 //========================================================================================
 
-const
-     // Error Message Texts
-
-
-     // Confirmation Message Texts
-
-
-     // Information Message Texts
-
-  imNotImplementedMsg = 'Not Yet Implemented';
-
-
 //========================================================================================
 //          PUBLIC CONSTANTS
 //========================================================================================
- 
+
+
 //========================================================================================
 //          PRIVATE VARIABLES
 //========================================================================================
@@ -75,24 +82,24 @@ const
 
                     {ERROR MESSAGES}
 
-function HUErrorMsgOK (ErrorType, ErrorMsg : String) : Integer;
+function HUErrorMsgOK (Caption, Text: String) : Integer;
 begin
-  Result := MessageDlg('ERROR - ' + ErrorType, ErrorMsg, mtError,
+  Result := MessageDlg('ERROR - ' + Caption, Text, mtError,
   [mbOK],0);
 end;// function HUErrorMsgOK
 
 //----------------------------------------------------------------------------------------
-function HUErrorMsgYN (ErrorType, ErrorMsg : String) : Integer;
+function HUErrorMsgYN (Caption , Text : String) : Integer;
 begin
-  Result := MessageDlg('ERROR - ' + ErrorType, ErrorMsg, mtError,
+  Result := MessageDlg('ERROR - ' + Caption, Text, mtError,
   [mbYes, mbNo],0);
 end;// function HUErrorMsgYN
 
                     {CONFIRMATION MESSAGES}
 
-function HUConfirmMsgYN (ConfirmType, ConfirmMsg : String) : Integer;
+function HUConfirmMsgYN (Caption, Text : String) : Integer;
 begin
-  Result := MessageDlg('CONFIRMATION - ' + ConfirmType, ConfirmMsg, mtConfirmation,
+  Result := MessageDlg('CONFIRMATION - ' + Caption, Text, mtConfirmation,
   [mbYes, mbNo],0);
 end;// function HUConfirmMsgYN
 
@@ -100,24 +107,23 @@ end;// function HUConfirmMsgYN
 
                     {INFORMATION MESSAGES}
 
-function HUInformationMsgOK (InformationType, InformationMsg : String) : Integer;
+function HUInformationMsgOK (Caption, Text : String) : Integer;
 begin
-  Result := MessageDlg('INFORMATION - ' + InformationType, InformationMsg, mtInformation,
+  Result := MessageDlg('INFORMATION - ' + Caption, Text, mtInformation,
   [mbOK],0);
 end;// function HUInformationMsgOK
 
 //----------------------------------------------------------------------------------------
-function HUInformationMsgYN (InformationType, InformationMsg : String) : Integer;
+function HUInformationMsgYN (Caption, Text   : String) : Integer;
 begin
-  Result := MessageDlg('INFORMATION - ' + InformationType, InformationMsg, mtInformation,
+  Result := MessageDlg('INFORMATION - ' + Caption, Text, mtInformation,
   [mbYes, mbNo],0);
-end;// function HUInformationMsgOK
+end;// function HUInformationMsgYN
 
 //----------------------------------------------------------------------------------------
-function HUNotImplementedMsgOK (InformationType: String) : Integer;
+function HUNotImplementedMsgOK (Caption, Text : String) : Integer;
 begin
-   Result := MessageDlg('INFORMATION - ' + InformationType, imNotImplementedMsg,
-                                                            mtInformation, [mbOK],0);
+   Result := MessageDlg('INFORMATION - ' + Caption, Text, mtInformation, [mbOK],0);
 end;// function HUNotImplementedMsgOK
 
 //========================================================================================

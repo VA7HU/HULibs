@@ -8,6 +8,14 @@ unit HURegistration;
 //
 // Description :
 //
+//             1. Request Registration
+//                a. Receive Registration Key and USerID
+//
+//             2. Enter Registration Key - Only ONE Registration allowed
+//                b. UserID automatically entered
+//
+//             3. If Multiple Users allowed then addional UserIDs allowed
+//
 // Called By :
 //
 // Calls : HUConstants
@@ -17,7 +25,7 @@ unit HURegistration;
 //
 // Ver. : 1.0.0
 //
-// Date : 16 Mar 2019
+// Date : 21 Apr 2019
 //
 //========================================================================================
 
@@ -25,42 +33,55 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Buttons,
-  StdCtrls,
+  StdCtrls, ComCtrls, Menus,
   // Application units
+  AppSettings,
   // HULib units
-  HUConstants, HUValidations;
+  HUConstants, HUMessageBoxes, HUValidations;
 
 type
 
   { TdlgHURegistration }
 
   TdlgHURegistration = class(TForm)
-    bbtRegID: TBitBtn;
+    bbtPrint: TBitBtn;
     bbtCancel: TBitBtn;
     bbtHelp: TBitBtn;
-    edtEmail: TEdit;
-    edtStep4: TEdit;
-    edtKeyID: TEdit;
-    edtLastName: TEdit;
+    edtEmailAddress: TEdit;
     edtFirstName: TEdit;
+    edtLastName: TEdit;
+    edtCallsign: TEdit;
     Label1: TLabel;
     Label2: TLabel;
-    lblKeyID: TLabel;
-    lblStep4: TLabel;
+    lblFirstName: TLabel;
+    lblLastName: TLabel;
     Label5: TLabel;
+    lblEMail: TLabel;
+    lblCallsign: TLabel;
     memInstructions: TMemo;
+    PageControl1: TPageControl;
+    tsRequestRegistrationKey: TTabSheet;
+    tsRequestUserID: TTabSheet;
+    tsEnterRegistrationKey: TTabSheet;
+    tsEnterUserIID: TTabSheet;
     procedure bbtCancelClick(Sender: TObject);
-    procedure bbtRegIDClick(Sender: TObject);
+    procedure bbtPrintClick(Sender: TObject);
     procedure bbtHelpClick(Sender: TObject);
-    procedure edtStep4KeyPress(Sender: TObject; var Key: char);
-    procedure edtEmailKeyPress(Sender: TObject; var Key: char);
+    procedure edtCallsignExit(Sender: TObject);
+    procedure edtEmailAddressExit(Sender: TObject);
+    procedure edtEmailAddressKeyPress(Sender: TObject; var Key: char);
+    procedure edtFirstNameExit(Sender: TObject);
     procedure edtFirstNameKeyPress(Sender: TObject; var Key: char);
+    procedure edtLastNameExit(Sender: TObject);
     procedure edtLastNameKeyPress(Sender: TObject; var Key: char);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure GetRegistrationKey;
-    procedure GetUSerID;
-//    procedure HideStep4;
+    procedure RequestRegistrationKey;
+    function ValidData : Boolean;
+    function ValidFirstName : Boolean;
+    function ValidLastName : Boolean;
+    function ValidEmailAddress : Boolean;
+    function ValidCallsign : Boolean;
   private
     fFirstName : String;
     fLastName : String;
@@ -68,8 +89,7 @@ type
     fCallsign : String;
     fRegKey : String;
     fUserID : String;
-    fHideStep4 : Boolean;
-    procedure HideStep4Entry;
+    fTitle : String;
   public
     function GetFirstName : string;
     procedure SetFirstName(FirstName : string);
@@ -83,15 +103,15 @@ type
     procedure SetRegKey(RegKey : string);
     function GetUserID : string;
     procedure SetUserID(UserID : string);
-    function GetHideStep4 : Boolean;
-    procedure SetHideStep4(HideStep4 : Boolean);
+    function GetTitle : string;
+    procedure SetTitle(Title : string);
     property pFirstName: string read GetFirstName write SetFirstName;
     property pLastName: string read GetLastName write SetLastName;
     property pEmailAddress: string read GetEmailAddress write SetEmailAddress;
     property pCallsign: string read GetCallsign write SetCallsign;
     property pRegKey: string read GetRegKey write SetRegKey;
     property pUserID: string read GetUserID write SetUserID;
-    property pHideStep4: Boolean read GetHideStep4 write SetHideStep4;
+    property pTitle: string read GetTitle write SetTitle;
 
   end;// TdlgHURegistration
 
@@ -106,48 +126,89 @@ implementation
 //          PRIVATE CONSTANTS
 //========================================================================================
 Const
+
   cstrlblRegistrationKey = 'Registration Key : ';
   cstrlblUserID = '     User ID : ';
 
-  cstrmemRegKeyInstructions1 = 'Request Your Registration Key.' +
-                                    K_CR +
-                                    K_CR +
-                                    'Step 1 : Enter Your First Name.' +
-                                    K_CR +
-                                    'Step 2 : Enter Your Last Name.' +
-                                    K_CR +
-                                    'Step 3 : Enter Your EMail Address.' +
-                                    K_CR +
-                                    'Step 4 : Enter Your Callsign.';
+  cintFirstNameMinLength = 2;
+  cintFirstNameMaxLength = 20;
 
-  cstrmemRegKeyInstructions2 = 'Request Your Registration Key.' +
-                                    K_CR +
-                                    K_CR +
-                                    'Step 1 : Enter Your First Name.' +
-                                    K_CR +
-                                    'Step 2 : Enter Your Last Name.' +
-                                    K_CR +
-                                    'Step 3 : Enter Your EMail Address.';
+  cintLastNameMinLength = 2;
+  cintLastNameMaxLength = 20;
 
-  cstrmemUserIDInstructions1 = 'Request Your User ID.' +
-                                    K_CR +
-                                    K_CR +
-                                    'Step 1 : Enter Your First Name.' +
-                                    K_CR +
-                                    'Step 2 : Enter Your Last Name.' +
-                                    K_CR +
-                                    'Step 3 : Enter Your EMail Address.' +
-                                    K_CR +
-                                    'Step 4 : Enter Your Callsign.';
+  cintEMailAddressMinLength = 5;
+  cintEMailAddressMaxLength = 30;
 
-  cstrmemUserIDInstructions2 = 'Request Your User ID.' +
-                                    K_CR +
-                                    K_CR +
-                                    'Step 1 : Enter Your First Name.' +
-                                    K_CR +
-                                    'Step 2 : Enter Your Last Name.' +
-                                    K_CR +
-                                    'Step 3 : Enter Your EMail Address.';
+  cintCallsignMinLength = 3;
+  cintCallsignMaxLength = 20;
+
+  //==========
+  //  MESSAGES
+  //
+  //==========
+  msgFirstNameCaption = 'FIRST NAME';
+  emInvalidFirstName = 'Invalid First Name.';
+
+  msgLastNameCaption = 'LAST NAME';
+  emInvalidLastName = 'Invalid Last Name.';
+
+  msgEMailAddressCaption = 'EMAIL ADDRESS';
+  emInvalidEMailAddress= 'Invalid EMailAddress Name.';
+
+  msgCallsignCaption = 'CALLSIGN';
+  emInvalidCallsign = 'Invalid Callsign Name.';
+
+  //==========
+  // MEMO TEXT
+  //==========
+
+  cstrmemRequestRegistrationKey = K_CR +
+                                  'Request Your Registration Key.' +
+                                  K_CR +
+                                  K_CR +
+                                  'Step 1 : Enter Your First Name.' +
+                                  K_CR +
+                                  'Step 2 : Enter Your Last Name.' +
+                                  K_CR +
+                                  'Step 3 : Enter Your EMail Address.' +
+                                  K_CR +
+                                  'Step 4 : Enter Your Callsign.' +
+                                  K_Cr +
+                                  'Select the <Print ID> button.';
+
+  cstrmemEnterRegistrationKey = K_CR +
+                                'Request Your Registration Key.' +
+                                K_CR +
+                                K_CR +
+                                'Step 1 : Enter Your First Name.' +
+                                K_CR +
+                                'Step 2 : Enter Your Last Name.' +
+                                K_CR +
+                                'Step 3 : Enter Your EMail Address.' +
+                                K_CR +
+                                'Step 4 : Enter Your Callsign.';
+
+  cstrmemRequestUserID = K_CR +
+                         'Request Your User ID.' +
+                         K_CR +
+                         K_CR +
+                         'Step 1 : Enter Your First Name.' +
+                         K_CR +
+                         'Step 2 : Enter Your Last Name.' +
+                         K_CR +
+                         'Step 3 : Enter Your EMail Address.';
+
+  cstrmemEnterUserID = K_CR +
+                       'Request Your Registration Key.' +
+                       K_CR +
+                       K_CR +
+                       'Step 1 : Enter Your First Name.' +
+                       K_CR +
+                       'Step 2 : Enter Your Last Name.' +
+                       K_CR +
+                       'Step 3 : Enter Your EMail Address.' +
+                       K_CR +
+                       'Step 4 : Enter Your Callsign.';
 
 //========================================================================================
 //          PUBLIC CONSTANTS
@@ -164,49 +225,46 @@ Const
 //========================================================================================
 //          PRIVATE ROUTINES
 //========================================================================================
-procedure TdlgHURegistration.HideStep4Entry;
-begin
-  if pHideStep4 then
-  begin
-    lblstep4.Visible := False;
-    edtStep4.Visible := False;
-  end
-  else
-  begin
-    lblstep4.Visible := True;
-    edtStep4.Visible := True;
-  end;
-end;// procedure TdlgHURegistration.HideStep4Entry
+function TdlgHURegistration.ValidData : Boolean;
+begin;
+  Result := True;
 
-//----------------------------------------------------------------------------------------
-{procedure TdlgHURegistration.ShowStep4;
-begin
-  lblstep4.Visible := True;
-  edtStep4.Visible := True;
-end;// procedure TdlgHURegistration.ShowStep4}
+  if not ValidFirstName then
+  begin
+    Result := False;
+  end;// if not ValidFirstName
+
+  if not ValidLastName then
+  begin
+    Result := False;
+  end;// if not ValidLastName
+
+  if not ValidEMailAddress then
+  begin
+    Result := False;
+  end;// if not ValidEMailAddress
+
+  if not ValidCallsign then
+  begin
+    Result := False;
+  end;// if not ValidCallsign
+
+end;// function TdlgHURegistration.ValidData
 
 //========================================================================================
 //          PUBLIC ROUTINES
 //========================================================================================
-//========================================================================================
-procedure TdlgHURegistration.GetRegistrationKey;
+procedure TdlgHURegistration.RequestRegistrationKey;
 begin
-  lblKeyID.Caption := cstrlblRegistrationKey;
-  bbtRegID.Caption := 'Registration';;
-  memInstructions.lines[0] := cstrmemRegKeyInstructions1;
-  pHideStep4 := False;
-  dlgHURegistration.HideStep4Entry;
+
+  PageControl1.ActivePage:= tsRequestRegistrationKey;
+  bbtPrint.Caption := 'Reguest Registration Key';
+  memInstructions.Caption := cstrmemRequestRegistrationKey;
   dlgHURegistration.ShowModal;
-end;// procedure TdlgHURegistration.GetRegistrationKey
+
+end;// procedure TdlgHURegistration.RequestRegistrationKey
 
 //========================================================================================
-procedure TdlgHURegistration.GetUSerID;
-begin
-  lblKeyID.Caption := cstrlblUserID;
-  bbtRegID.Caption := 'User ID';
-  memInstructions.lines[0] := cstrmemUserIDInstructions1;
-  dlgHURegistration.ShowModal;
-end;// procedure TdlgHURegistration.GetUSerID
 
 //========================================================================================
 //          PROPERTY ROUTINES
@@ -283,16 +341,16 @@ begin
 end;// procedure TdlgHURegistration.SetUserID
 
 //========================================================================================
-function TdlgHURegistration.GetHideStep4: Boolean;
+function TdlgHURegistration.GetTitle: String;
 begin
-  Result := fHideStep4;
-end;// function TdlgHURegistration.HideStep4D
+  Result := fTitle;
+end;// function TdlgHURegistration.Title
 
 //----------------------------------------------------------------------------------------
-procedure TdlgHURegistration.SetHideStep4(HideStep4: Boolean);
+procedure TdlgHURegistration.SetTitle(Title: String);
 begin
-   fHideStep4 := HideStep4;
-end;// procedure TdlgHURegistration.SetHidestep4
+   fUserID := Title;
+end;// procedure TdlgHURegistration.SetTitle
 
 //========================================================================================
 //          MENU ROUTINES
@@ -303,33 +361,30 @@ end;// procedure TdlgHURegistration.SetHidestep4
 //========================================================================================
 procedure TdlgHURegistration.bbtCancelClick(Sender: TObject);
 begin
-
+  showmessage('Register Later');
 end;// procedure TdlgHURegistration.bbtCancelClick
 
 //========================================================================================
-procedure TdlgHURegistration.bbtRegIDClick(Sender: TObject);
+procedure TdlgHURegistration.bbtPrintClick(Sender: TObject);
 begin
-
-end;// procedure TdlgHURegistration.bbtOKClick
+  showmessage('Thanks for Registering');
+end;// procedure TdlgHURegistration.bbtPrintClick
 
 //========================================================================================
 procedure TdlgHURegistration.bbtHelpClick(Sender: TObject);
 begin
-
+  showmessage('Help');
 end;// procedure TdlgHURegistration.BitBtn1Click
 
 //========================================================================================
 //          CONTROL ROUTINES
 //========================================================================================
 
+//==========
 // KeyPress
-procedure TdlgHURegistration.edtStep4KeyPress(Sender: TObject; var Key: char);
-begin
-   Key := ValidCallsignCharacter(Key);
-end;// procedure TdlgHURegistration.edtCallsignKeyPress
+//==========
 
-//========================================================================================
-procedure TdlgHURegistration.edtEmailKeyPress(Sender: TObject; var Key: char);
+procedure TdlgHURegistration.edtEmailAddressKeyPress(Sender: TObject; var Key: char);
 begin
   Key := ValidEmailCharacter(Key);
 end;// procedure TdlgHURegistration.edtEmailKeyPress
@@ -346,6 +401,93 @@ begin
   Key := ValidNameCharacter(Key);
  end;// procedure TdlgHURegistration.edtLastNameKeyPress
 
+//==========
+//  ON EXIT
+//==========
+procedure TdlgHURegistration.edtFirstNameExit(Sender: TObject);
+begin
+  ValidFirstName;
+end;// procedure TdlgHURegistration.edtFirstNameExit
+
+//----------------------------------------------------------------------------------------
+procedure TdlgHURegistration.edtLastNameExit(Sender: TObject);
+begin
+  ValidLastName;
+end;// procedure TdlgHURegistration.edtLastNameExit
+
+//----------------------------------------------------------------------------------------
+
+procedure TdlgHURegistration.edtEmailAddressExit(Sender: TObject);
+begin
+  ValidLastName;
+end;
+
+//----------------------------------------------------------------------------------------
+procedure TdlgHURegistration.edtCallsignExit(Sender: TObject);
+begin
+
+end;
+
+//----------------------------------------------------------------------------------------
+
+//===========
+// VALIDATION
+//===========
+function TdlgHURegistration.ValidFirstName : Boolean;
+begin;
+
+  Result := True;
+
+  if Length(edtFirstName.Text) < cintFirstNameMinLength then
+  begin
+    HUErrorMsgOk(msgFirstNameCaption, emInvalidFirstName);
+    Result := False;
+  end;// if Length(edtFirstName.Text) < cintFirstNameMinLength
+
+end;// function TdlgHURegistration.ValidFirstName
+
+//----------------------------------------------------------------------------------------
+function TdlgHURegistration.ValidLastName : Boolean;
+begin;
+
+    Result := True;
+
+    if Length(edtLastName.Text) < cintLastNameMinLength then
+    begin
+      HUErrorMsgOk(msgLastNameCaption, emInvalidLastName);
+      Result := False;
+    end;// if Length(edtLastName.Text) < cintLastNameMinLength
+
+end;// function TdlgHURegistration.ValidLastName
+
+//----------------------------------------------------------------------------------------
+function TdlgHURegistration.ValidEMailAddress : Boolean;
+begin;
+
+  Result := True;
+
+  if Length(edtEMailAddress.Text) < cintEMailAddressMinLength then
+  begin
+    HUErrorMsgOk(msgEMailAddressCaption, emInvalidEMailAddress);
+    Result := False;
+  end;// if Length(edtEMailAddress.Text) < cintEMailAddressMinLength
+
+end;// function ValidEMailAddress
+
+//----------------------------------------------------------------------------------------
+function TdlgHURegistration.ValidCallsign : Boolean;
+begin;
+
+    Result := True;
+
+    if Length(edtCallsign.Text) < cintCallsignMinLength then
+    begin
+      HUErrorMsgOk(msgCallsignCaption, emInvalidCallsign);
+      Result := False;
+    end;// if Length(edtCallsign.Text) < cintCallsignMinLength
+
+end;// function TdlgHURegistration.ValidCallsign
+
 //========================================================================================
 //          FILE ROUTINES
 //========================================================================================
@@ -355,6 +497,11 @@ begin
 //========================================================================================
 procedure TdlgHURegistration.FormCreate(Sender: TObject);
 begin
+
+  edtFirstName.MaxLength := cintFirstNameMaxLength;
+  edtLastName.MaxLength := cintLastNameMaxLength;
+  edtEMailAddress.MaxLength := cintEMailAddressMaxLength;
+  edtCallsign.MaxLength := cintCallsignMaxLength;
 
 end;// procedure TdlgHURegistration.FormCreate
 

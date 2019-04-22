@@ -23,7 +23,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Buttons,
   StdCtrls,
-  HUConstants, HUMessageBoxes{, HURegister1};
+  HUConstants, HUMessageBoxes, HURegistration;
 
 type
 
@@ -53,7 +53,6 @@ var
 implementation
 
 {$R *.lfm}
-
 
 //========================================================================================
 //          PRIVATE CONSTANTS
@@ -117,7 +116,7 @@ end;// procedure TdlgHUNagScreen.SetNagMsgTitle
 //========================================================================================
 procedure TdlgHUNagScreen.bbtHelpClick(Sender: TObject);
 begin
-  HUNotImplementedMsgOK('Help');
+  HUNotImplementedMsgOK('', 'Help');
 end;// procedure TdlgHUNagScreen.bbtHelpClick
 
 //========================================================================================
@@ -129,7 +128,7 @@ end;// procedure TdlgHUNagScreen.bbtNoClick
 //========================================================================================
 procedure TdlgHUNagScreen.bbtYesClick(Sender: TObject);
 begin
-  //dlgHURegister1.ShowModal;
+  RequestRegistrationKey;
 end;// procedure TdlgHUNagScreen.bbtYesClick
 
 //========================================================================================
@@ -143,17 +142,17 @@ end;// procedure TdlgHUNagScreen.bbtYesClick
 //========================================================================================
 //          FORM ROUTINES
 //========================================================================================
-procedure TdlgHUNagScreen.FormShow(Sender: TObject);
-begin
-
-  dlgHUNagScreen.Caption := pDlgTitle;
-end;// procedure TdlgHUNagScreen.FormShow
-
 procedure TdlgHUNagScreen.FormCreate(Sender: TObject);
 begin
     pDlgTitle := 'Default Title';
     Memo1.Caption := cstrMemoText;
 end;// procedure TdlgHUNagScreen.FormCreate
+//========================================================================================
+
+procedure TdlgHUNagScreen.FormShow(Sender: TObject);
+begin
+  dlgHUNagScreen.Caption := pDlgTitle;
+end;// procedure TdlgHUNagScreen.FormShow
 
 //========================================================================================
 end.// unit HUNagScreen

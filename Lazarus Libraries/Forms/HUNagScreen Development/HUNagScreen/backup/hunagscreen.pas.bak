@@ -14,7 +14,7 @@ unit HUNagScreen;
 //
 // Ver. : 1.00
 //
-// Date : 30 Sep 2018
+// Date : 1 Feb 2019
 //
 //========================================================================================
 
@@ -23,7 +23,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Buttons,
   StdCtrls,
-  HUConstants, HUMessageBoxes, HURegister;
+  HUConstants, HUMessageBoxes{, HURegister1};
 
 type
 
@@ -129,7 +129,7 @@ end;// procedure TdlgHUNagScreen.bbtNoClick
 //========================================================================================
 procedure TdlgHUNagScreen.bbtYesClick(Sender: TObject);
 begin
-  //dlgHURegister.ShowModal;
+  //dlgHURegister1.ShowModal;
 end;// procedure TdlgHUNagScreen.bbtYesClick
 
 //========================================================================================

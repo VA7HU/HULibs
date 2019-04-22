@@ -11,7 +11,7 @@ object dlgHUNagScreen: TdlgHUNagScreen
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.0.4'
+  LCLVersion = '1.8.4.0'
   object bbtNo: TBitBtn
     Left = 336
     Height = 30
