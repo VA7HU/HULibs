@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CONFIG>
-  <Compiler Value="C:\lazarus\fpc\3.0.4\bin\i386-win32\fpc.exe" Date="1286833309"/>
-  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -WG -l -vewnhibq &quot;-FiC:\Users\Hew\Documents\Programming Projects\Lazarus\HULibs Development\Working Copy\Lazarus Libraries\Dialogs\DB Dialogs\HUdlgCountryDB\lib\i386-win32&quot; -FuC:\lazarus\lcl\units\i386-win32\win32 -FuC:\lazarus\lcl\units\i386-win32 -FuC:\lazarus\components\lazutils\lib\i386-win32 -FuC:\lazarus\packager\units\i386-win32 &quot;-FuC:\Users\Hew\Documents\Programming Projects\Lazarus\HULibs Development\Working Copy\Lazarus Libraries\Dialogs\DB Dialogs\HUdlgCountryDB\&quot; &quot;-FUC:\Users\Hew\Documents\Programming Projects\Lazarus\HULibs Development\Working Copy\Lazarus Libraries\Dialogs\DB Dialogs\HUdlgCountryDB\lib\i386-win32\&quot; -dLCL -dLCLwin32 HUdlgCountryDBTest.lpr"/>
-  <Complete Value="False"/>
-</CONFIG>
